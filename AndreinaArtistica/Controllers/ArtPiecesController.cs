@@ -7,28 +7,23 @@ namespace AndreinaArtistica.Controllers
     [Route("[controller]")]
     public class ArtPiecesController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-        private readonly ILogger<ArtPiecesController> _logger;
-
-        public ArtPiecesController(ILogger<ArtPiecesController> logger)
-        {
-            _logger = logger;
-        }
 
         [HttpGet]
         public IEnumerable<ArtPieces> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new ArtPieces
+            return new List<ArtPieces>
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                new ArtPieces
+                {
+                    Id = 1,
+                    Titulo = "Name 1"
+                },
+                new ArtPieces
+                {
+                    Id = 2,
+                    Titulo = "Name 2"
+                }
+            };
         }
     }
 }

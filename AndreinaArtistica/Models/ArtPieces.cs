@@ -1,6 +1,6 @@
-namespace AndreinaArtistica
+namespace AndreinaArtistica.Models
 {
-    public class WeatherForecast
+    public class ArtPieces
     {
         public DateTime Date { get; set; }
 

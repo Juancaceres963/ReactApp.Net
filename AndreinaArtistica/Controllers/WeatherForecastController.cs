@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AndreinaArtistica.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AndreinaArtistica.Controllers
 {

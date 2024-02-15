@@ -1,4 +1,4 @@
-namespace AndreinaArtistica
+namespace AndreinaArtistica.Models
 {
     public class WeatherForecast
     {

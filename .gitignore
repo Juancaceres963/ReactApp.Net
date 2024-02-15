@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AndreinaArtistica/config
+/.vs/AndreinaArtistica/FileContentIndex
+/.vs/ProjectEvaluation
+/.vs/ReactApp.Net
+/.vs/AndreinaArtistica/v17
+*.json
+/.vs/slnx.sqlite

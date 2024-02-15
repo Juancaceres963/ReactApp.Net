@@ -9,16 +9,16 @@ namespace AndreinaArtistica.Controllers
     {
 
         [HttpGet]
-        public IEnumerable<ArtPieces> Get()
+        public IEnumerable<ArtPiece> Get()
         {
-            return new List<ArtPieces>
+            return new List<ArtPiece>
             {
-                new ArtPieces
+                new ArtPiece
                 {
                     Id = 1,
                     Titulo = "Name 1"
                 },
-                new ArtPieces
+                new ArtPiece
                 {
                     Id = 2,
                     Titulo = "Name 2"

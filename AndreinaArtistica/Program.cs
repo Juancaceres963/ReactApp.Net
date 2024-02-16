@@ -1,5 +1,7 @@
+using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources;
 using AndreinaArtistica.Resources.Abstract;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,11 @@ static void RegisterInterfaces(IServiceCollection services)
 {
     services.AddScoped<IArtPiecesResource, ArtPiecesResource>();
 }
+
+builder.Services.AddDbContext<AndreinartisticaContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AndreinartisticaContext"));
+});
 
 var app = builder.Build();
 

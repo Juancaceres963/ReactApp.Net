@@ -24,7 +24,7 @@ public partial class ArtPiece
 
     public string? State { get; set; }
 
-    public int Hight { get; set; }
+    public int Height { get; set; }
 
     public int Width { get; set; }
 

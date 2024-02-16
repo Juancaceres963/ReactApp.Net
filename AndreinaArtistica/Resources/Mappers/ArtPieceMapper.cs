@@ -15,7 +15,7 @@ namespace AndreinaArtistica.Resources.Mappers
                 Location = artPiece.Location,
                 Price = artPiece.Price,
                 Availability = artPiece.Availability,
-                Hight = artPiece.Hight,
+                Height = artPiece.Height,
                 Width = artPiece.Width,
                 Material = materials.FirstOrDefault(material => material.Id == artPiece.Material)?.Name,
                 Category = categories.FirstOrDefault(category => category.Id == artPiece.Category)?.Name,

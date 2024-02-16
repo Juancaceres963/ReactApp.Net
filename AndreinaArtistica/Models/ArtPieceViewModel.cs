@@ -1,6 +1,6 @@
 namespace AndreinaArtistica.Models
 {
-    public class ArtPiece
+    public class ArtPieceViewModel
     {
         public int Id { get; set; }
         public string Titulo { get; set; }

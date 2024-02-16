@@ -1,8 +1,18 @@
+using AndreinaArtistica.Resources;
+using AndreinaArtistica.Resources.Abstract;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+RegisterInterfaces(builder.Services);
+
+static void RegisterInterfaces(IServiceCollection services)
+{
+    services.AddScoped<IArtPiecesResource, ArtPiecesResource>();
+}
 
 var app = builder.Build();
 

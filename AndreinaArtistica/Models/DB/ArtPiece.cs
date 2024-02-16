@@ -10,9 +10,9 @@ public partial class ArtPiece
 
     public int Material { get; set; }
 
-    public DateOnly? Elaborated { get; set; }
-
     public int Topic { get; set; }
+
+    public DateOnly? Elaborated { get; set; }
 
     public int? SubTopic { get; set; }
 
@@ -24,7 +24,7 @@ public partial class ArtPiece
 
     public string? State { get; set; }
 
-    public int Length { get; set; }
+    public int Height { get; set; }
 
     public int Width { get; set; }
 
@@ -34,5 +34,6 @@ public partial class ArtPiece
 
     public virtual Material MaterialNavigation { get; set; } = null!;
 
-    public virtual Subject TopicNavigation { get; set; } = null!;
+    public virtual Topic TopicNavigation { get; set; } = null!;
+
 }

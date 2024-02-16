@@ -937,7 +937,7 @@ these defined as well. Consult their documentation how to do this. For example, 
 Many popular libraries use [decorators](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841) in their documentation.<br>
 Create React App doesn’t support decorator syntax at the moment because:
 
-* It is an experimental proposal and is subject to change.
+* It is an experimental proposal and is Topic to change.
 * The current specification version is not officially supported by Babel.
 * If the specification changes, we won’t be able to write a codemod because we don’t use them internally at Facebook.
 

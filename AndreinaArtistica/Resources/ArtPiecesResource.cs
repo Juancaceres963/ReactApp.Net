@@ -3,6 +3,7 @@ using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
 using AndreinaArtistica.Resources.Mappers;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AndreinaArtistica.Resources
 {
@@ -17,13 +18,26 @@ namespace AndreinaArtistica.Resources
         public async Task<IEnumerable<ArtPieceViewModel>> GetArtPieces()
         {
             // 1 Hacer un query que me devuelva todos los items de la base de datos
-            //var beers = _context.Beers.Include(m => m.Brand);
-            var artPieces = _context.ArtPieces;
-            var result = await artPieces.ToListAsync();
+
+            //Tabla de ArtPieces
+            var artPiecesContext = _context.ArtPieces;
+            var artPiecesList = await artPiecesContext.ToListAsync();
+
+            //Tabla de Categories
+            var categoriesContext = _context.Categories;
+            var categoriesList = await categoriesContext.ToListAsync();
+
+            //Tabla de Material
+            var materialsContext = _context.Materials;
+            var materialsList = await materialsContext.ToListAsync();
+
+            //Tabla de Topic
+            var TopicsContext = _context.Topics;
+            var TopicsList = await TopicsContext.ToListAsync();
 
             // 2 Mappear Artpiece a ArtPieceViewModel y devolverlo
 
-            var viewModel = result.Select(x => x.MapToViewModel());
+            var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, TopicsList));
 
             return viewModel;
         }

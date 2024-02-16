@@ -7,10 +7,13 @@ namespace AndreinaArtistica.Models
         public string Category { get; set; }
         public string Material { get; set; }
         public DateTime Elaborated { get; set; }
-        public string? Topic { get; set; }
-        public string? SubTopic { get; set; }
+        public string Topic { get; set; }
+
+        //public string? SubTopic { get; set; }
         public string? Location { get; set; }
         public string Availability { get; set; }
         public decimal Price { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
     }
 }

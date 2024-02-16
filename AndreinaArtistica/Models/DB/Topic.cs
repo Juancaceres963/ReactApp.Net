@@ -1,6 +1,6 @@
 ﻿namespace AndreinaArtistica.Models.DB;
 
-public partial class Subject
+public partial class Topic
 {
     public int Id { get; set; }
 

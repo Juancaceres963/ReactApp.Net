@@ -19,7 +19,7 @@ public partial class AndreinartisticaContext : DbContext
 
     public virtual DbSet<Material> Materials { get; set; }
 
-    public virtual DbSet<Subject> Subjects { get; set; }
+    public virtual DbSet<Topic> Topics { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -60,7 +60,7 @@ public partial class AndreinartisticaContext : DbContext
             entity.HasOne(d => d.TopicNavigation).WithMany(p => p.ArtPieces)
                 .HasForeignKey(d => d.Topic)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ArtPieces_Subjects");
+                .HasConstraintName("FK_ArtPieces_Topics");
         });
 
         modelBuilder.Entity<Category>(entity =>
@@ -81,9 +81,9 @@ public partial class AndreinartisticaContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<Subject>(entity =>
+        modelBuilder.Entity<Topic>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Subjects__3214EC07A1B4D20C");
+            entity.HasKey(e => e.Id).HasName("PK__Topics__3214EC07A1B4D20C");
 
             entity.Property(e => e.Name)
                 .HasMaxLength(30)

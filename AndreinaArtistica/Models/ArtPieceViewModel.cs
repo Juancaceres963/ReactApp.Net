@@ -11,6 +11,6 @@ namespace AndreinaArtistica.Models
         public string? SubTopic { get; set; }
         public string? Location { get; set; }
         public string Availability { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace AndreinaArtistica.Resources.Mappers
             {
                 Id = artPiece.Id,
                 Title = artPiece.Title,
-                Location = artPiece.Location
+                Location = artPiece.Location,
+                Price = artPiece.Price
             };
 
             return viewModel;

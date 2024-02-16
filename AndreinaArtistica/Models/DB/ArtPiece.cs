@@ -28,7 +28,7 @@ public partial class ArtPiece
 
     public int Width { get; set; }
 
-    public int Price { get; set; }
+    public decimal Price { get; set; }
 
     public virtual Category CategoryNavigation { get; set; } = null!;
 

@@ -7,6 +7,10 @@ namespace AndreinaArtistica.Resources
     {
         public IEnumerable<ArtPieceViewModel> GetArtPieces()
         {
+            // 1 Hacer un query que me devuelva todos los items de la base de datos
+
+            // 2 Mappear Artpiece a ArtPieceViewModel y devolverlo
+
             var viewModel = new List<ArtPieceViewModel>
             {
                 new ArtPieceViewModel

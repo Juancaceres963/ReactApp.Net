@@ -16,7 +16,7 @@ namespace AndreinaArtistica.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ArtPieceViewModel>> Get()
+        public ActionResult<IEnumerable<ArtPieceViewModel>> Get() //Llamar al endpoint es llamar a este metodo (1er)
         {
             var result = _artPiecesResource.GetArtPieces();
 

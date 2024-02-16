@@ -1,4 +1,5 @@
 using AndreinaArtistica.Models;
+using AndreinaArtistica.Resources.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AndreinaArtistica.Controllers
@@ -7,23 +8,19 @@ namespace AndreinaArtistica.Controllers
     [Route("[controller]")]
     public class ArtPiecesController : ControllerBase
     {
+        private readonly IArtPiecesResource _artPiecesResource;
+
+        public ArtPiecesController(IArtPiecesResource artPiecesResource)
+        {
+            _artPiecesResource = artPiecesResource;
+        }
 
         [HttpGet]
-        public IEnumerable<ArtPiece> Get()
+        public ActionResult<IEnumerable<ArtPieceViewModel>> Get() //Llamar al endpoint es llamar a este metodo (1er)
         {
-            return new List<ArtPiece>
-            {
-                new ArtPiece
-                {
-                    Id = 1,
-                    Titulo = "Name 1"
-                },
-                new ArtPiece
-                {
-                    Id = 2,
-                    Titulo = "Name 2"
-                }
-            };
+            var result = _artPiecesResource.GetArtPieces();
+
+            return Ok(result);
         }
     }
 }

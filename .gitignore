@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AndreinaArtistica/config/applicationhost.config
+/.vs/AndreinaArtistica/FileContentIndex/38e7b48b-723a-4b3f-8022-afba0e27ebbb.vsidx
+/.vs/AndreinaArtistica/FileContentIndex/6a61a63c-4f13-45fd-8b40-258487850290.vsidx
+/.vs/AndreinaArtistica/FileContentIndex/bb72d17e-13d2-4ec8-9ca1-fec4a316a96c.vsidx
+/.vs/AndreinaArtistica/config
+/.vs/AndreinaArtistica/FileContentIndex
+/.vs/AndreinaArtistica/v17
+/.vs/ProjectEvaluation
+/.vs/ReactApp.Net
+/.vs/AndreinaArtistica/v17
+*.json
+/.vs/slnx.sqlite
+/.vs/AndreinaArtistica/v17/.suo
+/.gitignore
+*.sqlite-journal

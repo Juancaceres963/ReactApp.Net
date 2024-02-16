@@ -16,7 +16,7 @@ public partial class ArtPiece
 
     public int? SubTopic { get; set; }
 
-    public string? Ubication { get; set; }
+    public string? Location { get; set; }
 
     public string? Exhibited { get; set; }
 

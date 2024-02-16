@@ -3,14 +3,14 @@ namespace AndreinaArtistica.Models
     public class ArtPieceViewModel
     {
         public int Id { get; set; }
-        public string Titulo { get; set; }
-        public string Categoria { get; set; }
-        public string Soporte { get; set; }
-        public DateTime Fecha { get; set; }
-        public string Tematica1 { get; set; }
-        public string? Tematica2 { get; set; }
-        public string Ubicacion { get; set; }
-        public string Disponibilidad { get; set; }
-        public int Precio { get; set; }
+        public string Title { get; set; }
+        public string Category { get; set; }
+        public string Material { get; set; }
+        public DateTime Elaborated { get; set; }
+        public string? Topic { get; set; }
+        public string? SubTopic { get; set; }
+        public string? Location { get; set; }
+        public string Availability { get; set; }
+        public int Price { get; set; }
     }
 }

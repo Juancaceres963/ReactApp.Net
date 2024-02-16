@@ -43,7 +43,7 @@ public partial class AndreinartisticaContext : DbContext
             entity.Property(e => e.Title)
                 .HasMaxLength(150)
                 .IsUnicode(false);
-            entity.Property(e => e.Ubication)
+            entity.Property(e => e.Location)
                 .HasMaxLength(200)
                 .IsUnicode(false);
 

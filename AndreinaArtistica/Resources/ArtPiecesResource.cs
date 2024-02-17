@@ -3,7 +3,6 @@ using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
 using AndreinaArtistica.Resources.Mappers;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace AndreinaArtistica.Resources
 {
@@ -19,27 +18,38 @@ namespace AndreinaArtistica.Resources
         {
             // 1 Hacer un query que me devuelva todos los items de la base de datos
 
-            //Tabla de ArtPieces
-            var artPiecesContext = _context.ArtPieces;
-            var artPiecesList = await artPiecesContext.ToListAsync();
+            var artPiecesList = await GetArtPiecesFromDB();
+            var categoriesList = await GetCategoriesFromDB();
+            var materialsList = await GetMaterialsFromDB();
+            var topicsList = await GetTopicsFromDB();
 
-            //Tabla de Categories
-            var categoriesContext = _context.Categories;
-            var categoriesList = await categoriesContext.ToListAsync();
-
-            //Tabla de Material
-            var materialsContext = _context.Materials;
-            var materialsList = await materialsContext.ToListAsync();
-
-            //Tabla de Topic
-            var TopicsContext = _context.Topics;
-            var TopicsList = await TopicsContext.ToListAsync();
-
-            // 2 Mappear Artpiece a ArtPieceViewModel y devolverlo
-
-            var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, TopicsList));
+            var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, topicsList));
 
             return viewModel;
+        }
+
+        private async Task<List<ArtPiece>> GetArtPiecesFromDB()
+        {
+            var artPiecesContext = _context.ArtPieces;
+            return await artPiecesContext.ToListAsync();
+        }
+
+        private async Task<List<Category>> GetCategoriesFromDB()
+        {
+            var categoriesContext = _context.Categories;
+            return await categoriesContext.ToListAsync();
+        }
+
+        private async Task<List<Material>> GetMaterialsFromDB()
+        {
+            var materialsContext = _context.Materials;
+            return await materialsContext.ToListAsync();
+        }
+
+        private async Task<List<Topic>> GetTopicsFromDB()
+        {
+            var topicsContext = _context.Topics;
+            return await topicsContext.ToListAsync();
         }
     }
 }

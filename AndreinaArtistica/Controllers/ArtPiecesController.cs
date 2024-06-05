@@ -19,8 +19,8 @@ namespace AndreinaArtistica.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ArtPieceViewModel>>> Get([FromQuery] GetArtPiecesParameters parameters) //Llamar al endpoint es llamar a este metodo (1er)
         {
-            var result = await _artPiecesResource.GetArtPieces(parameters);
-
+            var result = await _artPiecesResource.GetArtPieces(parameters.Ids, parameters.Availability, parameters.Top, parameters.Skip, parameters.Elaborated);
+            
             return Ok(result);
         }
     }

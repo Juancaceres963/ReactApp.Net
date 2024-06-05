@@ -30,7 +30,12 @@ namespace AndreinaArtistica.Resources
 
         private async Task<List<ArtPiece>> GetArtPiecesFromDB()
         {
-            var artPiecesContext = _context.ArtPieces;
+            var artPiecesContext = _context.ArtPieces
+                .Where(x => x.Id == 1)
+                .Where(x => x.Id == 1)
+                .OrderBy(x => x.Elaborated)
+                .Skip(0)
+                .Take(100);
             return await artPiecesContext.ToListAsync();
         }
 

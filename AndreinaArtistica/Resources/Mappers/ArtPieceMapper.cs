@@ -21,8 +21,8 @@ namespace AndreinaArtistica.Resources.Mappers
                 Category = categories.FirstOrDefault(category => category.Id == artPiece.Category)?.Name,
                 Topic = Topics.FirstOrDefault(Topic => Topic.Id == artPiece.Topic)?.Name
             };
-
-            return viewModel;
+          
+            return viewModel; 
         }
     }
 }

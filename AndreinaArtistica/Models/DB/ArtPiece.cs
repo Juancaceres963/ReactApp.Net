@@ -1,4 +1,6 @@
-﻿namespace AndreinaArtistica.Models.DB;
+﻿using AndreinaArtistica.Models.Enums;
+
+namespace AndreinaArtistica.Models.DB;
 
 public partial class ArtPiece
 {
@@ -20,7 +22,7 @@ public partial class ArtPiece
 
     public string? Exhibited { get; set; }
 
-    public string Availability { get; set; } = null!;
+    public bool? Availability { get; set; }
 
     public string? State { get; set; }
 
@@ -35,5 +37,5 @@ public partial class ArtPiece
     public virtual Material MaterialNavigation { get; set; } = null!;
 
     public virtual Topic TopicNavigation { get; set; } = null!;
-
+    public ArtPieceEnums.Topic Subject { get; internal set; }
 }

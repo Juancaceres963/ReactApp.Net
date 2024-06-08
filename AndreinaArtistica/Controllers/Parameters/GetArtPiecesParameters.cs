@@ -1,11 +1,28 @@
-﻿namespace AndreinaArtistica.Controllers.Parameters
+﻿using System.ComponentModel;
+using static AndreinaArtistica.Models.Enums.ArtPieceEnums;
+
+namespace AndreinaArtistica.Controllers.Parameters
 {
-    public class GetArtPiecesParameters
+    public class ArtPieceQueryParameters
     {
-        public IEnumerable<int?> Ids { get; set; }
-        public bool? Availability {  get; set; }
-        public int? Top { get; set; }
-        public int? Skip { get; set; }
-        public DateTime Elaborated { get; set; }
+        public Topic? Topic { get; set; }
+
+        public bool? Availability { get; set; }
+
+        [DefaultValue(null)]
+        public decimal? MaxPrice { get; set; }
+
+        [DefaultValue(null)]
+        public decimal? MinPrice { get; set; }
+
+        [DefaultValue(100)]
+        public int Top { get; set; }
+
+        [DefaultValue(0)]
+        public int Skip { get; set; }
+
+        //public string SortBy { get; set; } = "createdDate";
+
+        public IEnumerable<int>? Ids { get; set; }
     }
 }

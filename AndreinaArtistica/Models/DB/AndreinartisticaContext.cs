@@ -32,8 +32,7 @@ public partial class AndreinartisticaContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__ArtPiece__3214EC077DCAEAE1");
 
             entity.Property(e => e.Availability)
-                .HasMaxLength(10)
-                .IsUnicode(false);
+            .HasColumnType("bit");
             entity.Property(e => e.Exhibited)
                 .HasMaxLength(200)
                 .IsUnicode(false);

@@ -11,9 +11,14 @@ namespace AndreinaArtistica.Models
 
         //public string? SubTopic { get; set; }
         public string? Location { get; set; }
-        public string Availability { get; set; }
+        public bool Availability { get; set; }
         public decimal Price { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
+
+        //public static implicit operator ArtPieceViewModel(ArtPieceViewModel v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

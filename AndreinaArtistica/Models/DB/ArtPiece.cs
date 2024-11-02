@@ -37,5 +37,6 @@ public partial class ArtPiece
     public virtual Material MaterialNavigation { get; set; } = null!;
 
     public virtual Topic TopicNavigation { get; set; } = null!;
+
     public ArtPieceEnums.Topic Subject { get; internal set; }
 }

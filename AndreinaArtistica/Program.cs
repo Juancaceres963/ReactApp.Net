@@ -1,22 +1,14 @@
 using AndreinaArtistica.Models.DB;
-using AndreinaArtistica.Resources;
-using AndreinaArtistica.Resources.Abstract;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Register interfaces
-RegisterInterfaces(builder.Services);
-
-static void RegisterInterfaces(IServiceCollection services)
-{
-    services.AddScoped<IArtPiecesResource, ArtPiecesResource>();
-}
-
-// Configure DbContext with SQL Server
+// Configure the DbContext
 builder.Services.AddDbContext<AndreinartisticaContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("AndreinartisticaContext"));
@@ -24,17 +16,41 @@ builder.Services.AddDbContext<AndreinartisticaContext>(options =>
 
 var app = builder.Build();
 
-// Apply pending migrations and create the database if it doesn’t exist
+// Check and apply migrations at startup
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AndreinartisticaContext>();
-    dbContext.Database.Migrate(); // This applies migrations at startup
+
+    // Check if the database exists
+    if (!dbContext.Database.CanConnect())
+    {
+        // Create the database
+        dbContext.Database.EnsureCreated();
+
+        // Create the migration if it does not exist
+        var migrator = dbContext.GetService<IMigrator>();
+
+        try
+        {
+            // This will create a migration script based on the current model and apply it
+            migrator.Migrate();
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions (e.g., logging)
+            Console.WriteLine($"Migration failed: {ex.Message}");
+        }
+    }
+    else
+    {
+        // Ensure the database is up-to-date with any pending migrations
+        dbContext.Database.Migrate();
+    }
 }
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

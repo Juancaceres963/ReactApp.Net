@@ -1,3 +1,5 @@
+use Andreinartistica
+
 -- Insert data into Categories
 INSERT INTO Categories (Name) VALUES 
 ('Painting'),

@@ -1,9 +1,18 @@
 using AndreinaArtistica.Models.DB;
+using AndreinaArtistica.Resources.Abstract;
+using AndreinaArtistica.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
+
+RegisterInterfaces(builder.Services);
+
+static void RegisterInterfaces(IServiceCollection services)
+{
+    services.AddScoped<IArtPiecesResource, ArtPiecesResource>();
+}
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

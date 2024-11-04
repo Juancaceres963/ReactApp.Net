@@ -12,6 +12,8 @@ public partial class ArtPiece
 
     public int Topic { get; set; }
 
+    public int Technique { get; set; }
+
     public DateOnly? Elaborated { get; set; }
 
     public int? SubTopic { get; set; }
@@ -20,7 +22,7 @@ public partial class ArtPiece
 
     public string? Exhibited { get; set; }
 
-    public string Availability { get; set; } = null!;
+    public bool? Availability { get; set; }
 
     public string? State { get; set; }
 
@@ -36,4 +38,5 @@ public partial class ArtPiece
 
     public virtual Topic TopicNavigation { get; set; } = null!;
 
+    public virtual Technique TechniqueNavigation { get; set; } = null!;
 }

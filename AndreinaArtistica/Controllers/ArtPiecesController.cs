@@ -1,3 +1,4 @@
+using AndreinaArtistica.Controllers.Parameters;
 using AndreinaArtistica.Models;
 using AndreinaArtistica.Resources.Abstract;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,9 @@ namespace AndreinaArtistica.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ArtPieceViewModel>>> Get() //Llamar al endpoint es llamar a este metodo (1er)
+        public async Task<ActionResult<IEnumerable<ArtPieceViewModel>>> Get([FromQuery] ArtPieceQueryParameters parameters)
         {
-            var result = await _artPiecesResource.GetArtPieces();
-
+            var result = await _artPiecesResource.GetArtPieces(parameters);
             return Ok(result);
         }
     }

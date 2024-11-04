@@ -23,65 +23,60 @@ namespace AndreinaArtistica.Resources
             var categoriesList = await GetCategoriesFromDB();
             var materialsList = await GetMaterialsFromDB();
             var topicsList = await GetTopicsFromDB();
+            var techniquesList = await GetTechniquesFromDB();
 
-            var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, topicsList));
+            var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, topicsList, techniquesList));
 
             return viewModel;
         }
 
         private async Task<List<ArtPiece>> GetArtPiecesFromDB(ArtPieceQueryParameters parameters)
         {
-            //var artPiecesContext = _context.ArtPieces
-            //    .Where(x => x.Id == 1)
-            //    .Where(x => x.Id == 1)
-            //    .OrderBy(x => x.Elaborated)
-            //    .Skip(0)
-            //    .Take(100);
-
             var artPiecesContext = _context.ArtPieces.AsQueryable();
 
-            if (!(parameters.Topic == null))
+            // Filter by Topic
+            if (parameters.Topic.HasValue)
             {
                 artPiecesContext = artPiecesContext.Where(ap => ap.Topic == (int)parameters.Topic);
             }
 
-            if (parameters.Availability == true)
+            // Filter by Availability
+            if (parameters.Availability.HasValue)
             {
                 artPiecesContext = artPiecesContext.Where(ap => ap.Availability == parameters.Availability);
             }
 
-            if (parameters.MinPrice.HasValue)
+            // Filter by Price Range if available
+            if (parameters.Availability == true)
             {
-                artPiecesContext = artPiecesContext.Where(ap => ap.Price >= parameters.MinPrice.Value);
+                if (parameters.MinPrice.HasValue)
+                {
+                    artPiecesContext = artPiecesContext.Where(ap => ap.Price >= parameters.MinPrice.Value);
+                }
+                if (parameters.MaxPrice.HasValue)
+                {
+                    artPiecesContext = artPiecesContext.Where(ap => ap.Price <= parameters.MaxPrice.Value);
+                }
             }
 
-            if (parameters.MaxPrice.HasValue)
+            // Filter by list of IDs
+            if (parameters.Ids != null && parameters.Ids.Any())
             {
-                artPiecesContext = artPiecesContext.Where(ap => ap.Price <= parameters.MaxPrice.Value);
+                artPiecesContext = artPiecesContext.Where(ap => parameters.Ids.Contains(ap.Id));
             }
 
-            //if (parameters.ids != null && parameters.ids.length > 0)
-            //{
-            //    artpiecescontext = artpiecescontext.where(ap => parameters.ids.contains(ap.id.tostring()));
-            //}
-
-            //if (parameters.sortby == "createddate")
-            //{
-            //    query = query.orderby(ap => ap.createddate);
-            //}
-
-            if (parameters.Skip > 0)
+            // Sort by createdDate if specified
+            if (string.IsNullOrEmpty(parameters.SortBy))
             {
-                artPiecesContext = artPiecesContext.Skip(parameters.Skip);
+                artPiecesContext = artPiecesContext.OrderBy(ap => ap.Elaborated);
             }
 
-            if (parameters.Top > 0)
-            {
-                artPiecesContext = artPiecesContext.Take(parameters.Top);
-            }
+            artPiecesContext = artPiecesContext.Skip(parameters.Skip);
+            artPiecesContext = artPiecesContext.Take(parameters.Top);
 
             return await artPiecesContext.ToListAsync();
         }
+
 
         private async Task<List<Category>> GetCategoriesFromDB()
         {
@@ -99,6 +94,12 @@ namespace AndreinaArtistica.Resources
         {
             var topicsContext = _context.Topics;
             return await topicsContext.ToListAsync();
+        }
+
+        private async Task<List<Technique>> GetTechniquesFromDB()
+        {
+            var techniquesContext = _context.Techniques;
+            return await techniquesContext.ToListAsync();
         }
     }
 }

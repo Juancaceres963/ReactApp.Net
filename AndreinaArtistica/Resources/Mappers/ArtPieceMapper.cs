@@ -1,12 +1,11 @@
 ﻿using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
-using Microsoft.EntityFrameworkCore;
 
 namespace AndreinaArtistica.Resources.Mappers
 {
     public static class ArtPieceMapper
     {
-        public static ArtPieceViewModel MapToViewModel(this ArtPiece artPiece, List<Category> categories, List<Material> materials, List<Topic> Topics)
+        public static ArtPieceViewModel MapToViewModel(this ArtPiece artPiece, List<Category> categories, List<Material> materials, List<Topic> Topics, List<Technique> Techniques)
         {
             var viewModel = new ArtPieceViewModel
             {
@@ -19,7 +18,8 @@ namespace AndreinaArtistica.Resources.Mappers
                 Width = artPiece.Width,
                 Material = materials.FirstOrDefault(material => material.Id == artPiece.Material)?.Name,
                 Category = categories.FirstOrDefault(category => category.Id == artPiece.Category)?.Name,
-                Topic = Topics.FirstOrDefault(Topic => Topic.Id == artPiece.Topic)?.Name
+                Topic = Topics.FirstOrDefault(Topic => Topic.Id == artPiece.Topic)?.Name,
+                Technique = Techniques.FirstOrDefault(Technique => Technique.Id == artPiece.Technique)?.Name,
             };
           
             return viewModel; 

@@ -8,6 +8,7 @@ namespace AndreinaArtistica.Models
         public string Material { get; set; }
         public DateTime Elaborated { get; set; }
         public string Topic { get; set; }
+        public string Technique { get; set; }
 
         //public string? SubTopic { get; set; }
         public string? Location { get; set; }

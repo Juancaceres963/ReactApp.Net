@@ -1,6 +1,4 @@
-﻿using AndreinaArtistica.Models.Enums;
-
-namespace AndreinaArtistica.Models.DB;
+﻿namespace AndreinaArtistica.Models.DB;
 
 public partial class ArtPiece
 {
@@ -41,6 +39,4 @@ public partial class ArtPiece
     public virtual Topic TopicNavigation { get; set; } = null!;
 
     public virtual Technique TechniqueNavigation { get; set; } = null!;
-
-    public ArtPieceEnums.Topic Subject { get; internal set; }
 }

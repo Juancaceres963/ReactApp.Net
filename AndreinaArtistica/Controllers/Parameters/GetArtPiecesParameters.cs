@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel;
-using static AndreinaArtistica.Models.Enums.ArtPieceEnums;
 
 namespace AndreinaArtistica.Controllers.Parameters
 {
     public class ArtPieceQueryParameters
     {
-        public Topic? Topic { get; set; }
+        public IEnumerable<int>? Ids { get; set; }
+
+        public IEnumerable<int>? Categories { get; set; }
+
+        public IEnumerable<int>? Topics { get; set; }
+
+        public IEnumerable<int>? Techniques { get; set; }
 
         public bool? Availability { get; set; }
 
@@ -21,8 +26,6 @@ namespace AndreinaArtistica.Controllers.Parameters
         [DefaultValue(0)]
         public int Skip { get; set; } = 0;
 
-        public string SortBy { get; set; } = "elaborated";
-
-        public IEnumerable<int>? Ids { get; set; }
+        public string OrderBy { get; set; } = "elaborated desc";
     }
 }

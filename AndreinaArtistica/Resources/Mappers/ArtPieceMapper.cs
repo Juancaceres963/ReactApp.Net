@@ -11,9 +11,10 @@ namespace AndreinaArtistica.Resources.Mappers
             {
                 Id = artPiece.Id,
                 Title = artPiece.Title,
+                Elaborated = artPiece.Elaborated,
                 Location = artPiece.Location,
-                Price = artPiece.Price,
-                Availability = (bool)artPiece.Availability,
+                Price = artPiece.Availability == true ? artPiece.Price : null,
+                Availability = artPiece.Availability ?? false,
                 Height = artPiece.Height,
                 Width = artPiece.Width,
                 Material = materials.FirstOrDefault(material => material.Id == artPiece.Material)?.Name,

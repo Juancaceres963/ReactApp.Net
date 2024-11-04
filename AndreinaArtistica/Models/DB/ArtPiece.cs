@@ -14,6 +14,8 @@ public partial class ArtPiece
 
     public int Topic { get; set; }
 
+    public int Technique { get; set; }
+
     public DateOnly? Elaborated { get; set; }
 
     public int? SubTopic { get; set; }
@@ -37,6 +39,8 @@ public partial class ArtPiece
     public virtual Material MaterialNavigation { get; set; } = null!;
 
     public virtual Topic TopicNavigation { get; set; } = null!;
+
+    public virtual Technique TechniqueNavigation { get; set; } = null!;
 
     public ArtPieceEnums.Topic Subject { get; internal set; }
 }

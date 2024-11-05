@@ -17,9 +17,9 @@ namespace AndreinaArtistica.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TopicViewModel>>> Get([FromQuery])
+        public async Task<ActionResult<IEnumerable<TopicViewModel>>> Get()
         {
-            var result = await _TopicsResource.GetArtPieces();
+            var result = await _TopicsResource.GetTopics();
             return Ok(result);
         }
     }

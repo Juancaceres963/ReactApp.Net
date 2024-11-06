@@ -6,5 +6,5 @@ public partial class Topic
 
     public string? Name { get; set; }
 
-    public virtual ICollection<Topic> Topics { get; set; } = new List<Topic>();
+    public virtual ICollection<ArtPiece> ArtPieces { get; set; } = new List<ArtPiece>();
 }

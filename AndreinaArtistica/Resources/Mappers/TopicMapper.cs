@@ -5,7 +5,7 @@ namespace AndreinaArtistica.Resources.Mappers
 {
     public static class TopicMapper
     {
-        public static TopicViewModel MapToViewModel(this Topic topic)
+        public static TopicViewModel MapToViewModel(this Topic topic, List<Topic> Topics)
         {
             var viewModel = new TopicViewModel
             {

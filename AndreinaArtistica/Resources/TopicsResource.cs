@@ -20,7 +20,7 @@ namespace AndreinaArtistica.Resources
         {
             var topicsList = await GetTopicsFromDB();
 
-            var viewModel = topicsList.Select(topic => topic.MapToViewModel(topicsList);
+            var viewModel = topicsList.Select(topic => topic.MapToViewModel(topicsList));
 
             return viewModel;
         }

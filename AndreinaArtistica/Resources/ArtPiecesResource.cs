@@ -2,6 +2,7 @@
 using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
+using AndreinaArtistica.Resources.Helpers;
 using AndreinaArtistica.Resources.Mappers;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
@@ -11,18 +12,21 @@ namespace AndreinaArtistica.Resources
     public class ArtPiecesResource : IArtPiecesResource
     {
         private readonly AndreinartisticaContext _context;
+        private readonly DatabaseHelper _databaseHelper;
 
-        public ArtPiecesResource(AndreinartisticaContext context)
+        public ArtPiecesResource(AndreinartisticaContext context, DatabaseHelper databaseHelper)
         {
             _context = context;
+            _databaseHelper = databaseHelper;
         }
+
         public async Task<IEnumerable<ArtPieceViewModel>> GetArtPieces(ArtPieceQueryParameters parameters)
         {
             var artPiecesList = await GetArtPiecesFromDB(parameters);
-            var categoriesList = await GetCategoriesFromDB();
-            var materialsList = await GetMaterialsFromDB();
-            var topicsList = await GetTopicsFromDB();
-            var techniquesList = await GetTechniquesFromDB();
+            var categoriesList = await _databaseHelper.GetCategoriesFromDB();
+            var materialsList = await _databaseHelper.GetMaterialsFromDB();
+            var topicsList = await _databaseHelper.GetTopicsFromDB();
+            var techniquesList = await _databaseHelper.GetTechniquesFromDB();
 
             var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, topicsList, techniquesList));
 
@@ -33,84 +37,46 @@ namespace AndreinaArtistica.Resources
         {
             var artPiecesContext = _context.ArtPieces.AsQueryable();
 
-            // TODO: mover cada filtro (o grupo de filtros) a un método privado para mejorar la legibilidad
-
-            // Filter by list of IDs
-            if (parameters.Ids != null && parameters.Ids.Any())
-            {
-                artPiecesContext = artPiecesContext.Where(ap => parameters.Ids.Contains(ap.Id));
-            }
-
-            // Filter by Category
-            if (parameters.Categories != null && parameters.Categories.Any())
-            {
-                artPiecesContext = artPiecesContext.Where(ap => parameters.Categories.Contains(ap.Category));
-            }
-
-            // Filter by Topic
-            if (parameters.Topics != null && parameters.Topics.Any())
-            {
-                artPiecesContext = artPiecesContext.Where(ap => parameters.Topics.Contains(ap.Topic));
-            }
-
-            // Filter by Techniques
-            if (parameters.Techniques != null && parameters.Techniques.Any())
-            {
-                artPiecesContext = artPiecesContext.Where(ap => parameters.Techniques.Contains(ap.Technique));
-            }
-
-            // Filter By Min Max Pices
-            if (parameters.MinPrice.HasValue)
-            {
-                artPiecesContext = artPiecesContext.Where(ap => ap.Availability == false || ap.Price >= parameters.MinPrice.Value);
-            }
-
-            if (parameters.MaxPrice.HasValue)
-            {
-                artPiecesContext = artPiecesContext.Where(ap => ap.Availability == false || ap.Price <= parameters.MaxPrice.Value);
-            }
-
-            // Filter by Availability
-            if (parameters.Availability.HasValue)
-            {
-                artPiecesContext = artPiecesContext.Where(ap => ap.Availability == parameters.Availability);
-            }
-
-            // Sort by createdDate if specified
-            if (!string.IsNullOrEmpty(parameters.OrderBy))
-            {
-                artPiecesContext = artPiecesContext.OrderBy(parameters.OrderBy);
-            }
-
-            artPiecesContext = artPiecesContext.Skip(parameters.Skip);
-            artPiecesContext = artPiecesContext.Take(parameters.Top);
+            artPiecesContext = ApplyFilters(artPiecesContext, parameters);
+            artPiecesContext = ApplySortingAndPagination(artPiecesContext, parameters);
 
             return await artPiecesContext.ToListAsync();
         }
 
-        // TODO: Quizás mover estos métodos a una clase de base de datos para reutilizarlos
-        private async Task<List<Category>> GetCategoriesFromDB()
+        private IQueryable<ArtPiece> ApplyFilters(IQueryable<ArtPiece> artPiecesContext, ArtPieceQueryParameters parameters)
         {
-            var categoriesContext = _context.Categories;
-            return await categoriesContext.ToListAsync();
+            if (parameters.Ids != null && parameters.Ids.Any())
+                artPiecesContext = artPiecesContext.Where(ap => parameters.Ids.Contains(ap.Id));
+
+            if (parameters.Categories != null && parameters.Categories.Any())
+                artPiecesContext = artPiecesContext.Where(ap => parameters.Categories.Contains(ap.Category));
+
+            if (parameters.Topics != null && parameters.Topics.Any())
+                artPiecesContext = artPiecesContext.Where(ap => parameters.Topics.Contains(ap.Topic));
+
+            if (parameters.Techniques != null && parameters.Techniques.Any())
+                artPiecesContext = artPiecesContext.Where(ap => parameters.Techniques.Contains(ap.Technique));
+
+            if (parameters.MinPrice.HasValue)
+                artPiecesContext = artPiecesContext.Where(ap => ap.Availability == false || ap.Price >= parameters.MinPrice.Value);
+
+            if (parameters.MaxPrice.HasValue)
+                artPiecesContext = artPiecesContext.Where(ap => ap.Availability == false || ap.Price <= parameters.MaxPrice.Value);
+
+            if (parameters.Availability.HasValue)
+                artPiecesContext = artPiecesContext.Where(ap => ap.Availability == parameters.Availability);
+
+            return artPiecesContext;
         }
 
-        private async Task<List<Material>> GetMaterialsFromDB()
+        private IQueryable<ArtPiece> ApplySortingAndPagination(IQueryable<ArtPiece> artPiecesContext, ArtPieceQueryParameters parameters)
         {
-            var materialsContext = _context.Materials;
-            return await materialsContext.ToListAsync();
-        }
+            if (!string.IsNullOrEmpty(parameters.OrderBy))
+                artPiecesContext = artPiecesContext.OrderBy(parameters.OrderBy);
 
-        private async Task<List<Topic>> GetTopicsFromDB()
-        {
-            var topicsContext = _context.Topics;
-            return await topicsContext.ToListAsync();
-        }
-
-        private async Task<List<Technique>> GetTechniquesFromDB()
-        {
-            var techniquesContext = _context.Techniques;
-            return await techniquesContext.ToListAsync();
+            return artPiecesContext
+                .Skip(parameters.Skip)
+                .Take(parameters.Top);
         }
     }
 }

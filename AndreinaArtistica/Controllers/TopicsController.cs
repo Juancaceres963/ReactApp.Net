@@ -1,5 +1,4 @@
-﻿using AndreinaArtistica.Controllers.Parameters;
-using AndreinaArtistica.Models;
+﻿using AndreinaArtistica.Models;
 using AndreinaArtistica.Resources.Abstract;
 using Microsoft.AspNetCore.Mvc;
 

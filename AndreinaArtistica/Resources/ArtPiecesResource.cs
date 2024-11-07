@@ -1,8 +1,8 @@
 ﻿using AndreinaArtistica.Controllers.Parameters;
+using AndreinaArtistica.Helpers.Abstract;
 using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
-using AndreinaArtistica.Resources.Helpers;
 using AndreinaArtistica.Resources.Mappers;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
@@ -12,9 +12,9 @@ namespace AndreinaArtistica.Resources
     public class ArtPiecesResource : IArtPiecesResource
     {
         private readonly AndreinartisticaContext _context;
-        private readonly DatabaseHelper _databaseHelper;
+        private readonly IDatabaseHelper _databaseHelper;
 
-        public ArtPiecesResource(AndreinartisticaContext context, DatabaseHelper databaseHelper)
+        public ArtPiecesResource(AndreinartisticaContext context, IDatabaseHelper databaseHelper)
         {
             _context = context;
             _databaseHelper = databaseHelper;

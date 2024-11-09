@@ -4,33 +4,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AndreinaArtistica.Helpers
 {
-    public class DatabaseHelper: IDatabaseHelper
+    public static class DatabaseHelper
     {
-        private readonly AndreinartisticaContext _context;
 
-        public DatabaseHelper(AndreinartisticaContext context)
+        public static async Task<List<Category>> GetCategoriesFromDB(AndreinartisticaContext context)
         {
-            _context = context;
+            return await context.Categories.ToListAsync();
         }
 
-        public async Task<List<Category>> GetCategoriesFromDB()
+        public static async Task<List<Material>> GetMaterialsFromDB(AndreinartisticaContext context)
         {
-            return await _context.Categories.ToListAsync();
+            return await context.Materials.ToListAsync();
         }
 
-        public async Task<List<Material>> GetMaterialsFromDB()
+        public static async Task<List<Topic>> GetTopicsFromDB(AndreinartisticaContext context)
         {
-            return await _context.Materials.ToListAsync();
+            return await context.Topics.ToListAsync();
         }
 
-        public async Task<List<Topic>> GetTopicsFromDB()
+        public static async Task<List<Technique>> GetTechniquesFromDB(AndreinartisticaContext context)
         {
-            return await _context.Topics.ToListAsync();
-        }
-
-        public async Task<List<Technique>> GetTechniquesFromDB()
-        {
-            return await _context.Techniques.ToListAsync();
+            return await context.Techniques.ToListAsync();
         }
     }
 }

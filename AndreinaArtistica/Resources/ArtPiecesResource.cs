@@ -1,4 +1,5 @@
 ﻿using AndreinaArtistica.Controllers.Parameters;
+using AndreinaArtistica.Helpers;
 using AndreinaArtistica.Helpers.Abstract;
 using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
@@ -12,21 +13,19 @@ namespace AndreinaArtistica.Resources
     public class ArtPiecesResource : IArtPiecesResource
     {
         private readonly AndreinartisticaContext _context;
-        private readonly IDatabaseHelper _databaseHelper;
 
-        public ArtPiecesResource(AndreinartisticaContext context, IDatabaseHelper databaseHelper)
+        public ArtPiecesResource(AndreinartisticaContext context)
         {
             _context = context;
-            _databaseHelper = databaseHelper;
         }
 
         public async Task<IEnumerable<ArtPieceViewModel>> GetArtPieces(ArtPieceQueryParameters parameters)
         {
             var artPiecesList = await GetArtPiecesFromDB(parameters);
-            var categoriesList = await _databaseHelper.GetCategoriesFromDB();
-            var materialsList = await _databaseHelper.GetMaterialsFromDB();
-            var topicsList = await _databaseHelper.GetTopicsFromDB();
-            var techniquesList = await _databaseHelper.GetTechniquesFromDB();
+            var categoriesList = await DatabaseHelper.GetCategoriesFromDB(_context);
+            var materialsList = await DatabaseHelper.GetMaterialsFromDB(_context);
+            var topicsList = await DatabaseHelper.GetTopicsFromDB(_context);
+            var techniquesList = await DatabaseHelper.GetTechniquesFromDB(_context);
 
             var viewModel = artPiecesList.Select(artPiece => artPiece.MapToViewModel(categoriesList, materialsList, topicsList, techniquesList));
 

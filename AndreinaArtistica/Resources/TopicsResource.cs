@@ -24,7 +24,6 @@ namespace AndreinaArtistica.Resources
 
             return viewModel;
         }
-        // TODO: Quizás mover estos métodos a una clase de base de datos para reutilizarlos
         private async Task<List<Topic>> GetTopicsFromDB()
         {
             var topicsContext = _context.Topics;

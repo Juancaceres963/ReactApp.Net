@@ -8,17 +8,17 @@ namespace AndreinaArtistica.Controllers
     [Route("[controller]")]
     public class TopicsController : ControllerBase
     {
-        private readonly ITopicsResource _TopicsResource;
+        private readonly ITopicsResource _topicsResource;
 
         public TopicsController(ITopicsResource topicsResource)
         {
-            _TopicsResource = topicsResource;
+            _topicsResource = topicsResource;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TopicViewModel>>> Get()
         {
-            var result = await _TopicsResource.GetTopics();
+            var result = await _topicsResource.GetTopics();
             return Ok(result);
         }
     }

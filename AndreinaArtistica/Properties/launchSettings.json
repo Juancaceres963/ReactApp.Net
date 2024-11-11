@@ -11,7 +11,7 @@
     "AndreinaArtistica": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7200;http://localhost:5246",
+      "applicationUrl": "https://localhost:7200;http://localhost:5246;https://localhost:44483",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"

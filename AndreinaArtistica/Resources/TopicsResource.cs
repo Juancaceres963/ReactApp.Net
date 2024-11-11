@@ -1,8 +1,6 @@
-﻿using AndreinaArtistica.Controllers.Parameters;
-using AndreinaArtistica.Models;
+﻿using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
-using AndreinaArtistica.Resources.Mappers;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
 
@@ -20,13 +18,18 @@ namespace AndreinaArtistica.Resources
         {
             var topicsList = await GetTopicsFromDB();
 
-            var viewModel = topicsList.Select(topic => topic.MapToViewModel(topicsList));
+            var viewModel = topicsList.Select(topic => new TopicViewModel
+            {
+                Id = topic.Id,
+                Name = topic.Name
+            });
 
             return viewModel;
         }
         private async Task<List<Topic>> GetTopicsFromDB()
         {
-            var topicsContext = _context.Topics;
+            var topicsContext = _context.Topics
+                .Select(topic => new Topic { Id = topic.Id, Name = topic.Name});
             return await topicsContext.ToListAsync();
         }
     }

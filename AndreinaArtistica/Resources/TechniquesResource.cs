@@ -7,12 +7,12 @@ using System.Linq.Dynamic.Core;
 
 namespace AndreinaArtistica.Resources
 {
-    public class TechniqueResource : ITechniquesResource
+    public class TechniquesResource : ITechniquesResource
     {
         private readonly AndreinartisticaContext _context;
         private readonly IDatabaseHelper _databaseHelper;
 
-        public TechniqueResource(AndreinartisticaContext context, IDatabaseHelper databaseHelper)
+        public TechniquesResource(AndreinartisticaContext context, IDatabaseHelper databaseHelper)
         {
             _context = context;
             _databaseHelper = databaseHelper;

@@ -16,6 +16,7 @@ static void RegisterInterfaces(IServiceCollection services)
     services.AddScoped<IArtPiecesResource, ArtPiecesResource>();
     services.AddScoped<IDatabaseHelper, DatabaseHelper>();
     services.AddScoped<ITopicsResource, TopicesResource>();
+    services.AddScoped<ITechniquesResource, TechniquesResource>();
 }
 
 // Add services to the container.

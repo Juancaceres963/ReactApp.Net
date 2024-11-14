@@ -8,7 +8,8 @@ const context =  [
     "/weatherforecast",
     "/artpieces",
     "/topics",
-    "/techniques"
+    "/techniques",
+    "/categories"
 ];
 
 module.exports = function(app) {

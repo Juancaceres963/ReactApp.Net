@@ -1,5 +1,4 @@
-﻿using AndreinaArtistica.Controllers.Parameters;
-using AndreinaArtistica.Helpers.Abstract;
+﻿using AndreinaArtistica.Helpers.Abstract;
 using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;

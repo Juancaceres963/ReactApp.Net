@@ -1,6 +1,8 @@
+using AndreinaArtistica.Helpers;
+using AndreinaArtistica.Helpers.Abstract;
 using AndreinaArtistica.Models.DB;
-using AndreinaArtistica.Resources.Abstract;
 using AndreinaArtistica.Resources;
+using AndreinaArtistica.Resources.Abstract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -12,6 +14,8 @@ RegisterInterfaces(builder.Services);
 static void RegisterInterfaces(IServiceCollection services)
 {
     services.AddScoped<IArtPiecesResource, ArtPiecesResource>();
+    services.AddScoped<IDatabaseHelper, DatabaseHelper>();
+    services.AddScoped<ITopicsResource, TopicesResource>();
 }
 
 // Add services to the container.

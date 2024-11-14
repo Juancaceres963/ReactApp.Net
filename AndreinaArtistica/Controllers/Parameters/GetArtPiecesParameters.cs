@@ -21,7 +21,7 @@ namespace AndreinaArtistica.Controllers.Parameters
         public decimal? MinPrice { get; set; }
 
         [DefaultValue(100)]
-        public int Top { get; set; } = 100;
+        public int Top { get; set; } = 20;
 
         [DefaultValue(0)]
         public int Skip { get; set; } = 0;

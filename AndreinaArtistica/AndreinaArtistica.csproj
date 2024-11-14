@@ -31,6 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\Mappers\TopicsResource.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\DB\Scripts\" />
   </ItemGroup>
 

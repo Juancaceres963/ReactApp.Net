@@ -1,4 +1,6 @@
-﻿using AndreinaArtistica.Models;
+﻿using AndreinaArtistica.Controllers.Parameters;
+using AndreinaArtistica.Helpers.Abstract;
+using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
 using Microsoft.EntityFrameworkCore;
@@ -9,14 +11,16 @@ namespace AndreinaArtistica.Resources
     public class TopicesResource : ITopicsResource
     {
         private readonly AndreinartisticaContext _context;
+        private readonly IDatabaseHelper _databaseHelper;
 
-        public TopicesResource(AndreinartisticaContext context)
+        public TopicesResource(AndreinartisticaContext context, IDatabaseHelper databaseHelper)
         {
             _context = context;
+            _databaseHelper = databaseHelper;
         }
         public async Task<IEnumerable<TopicViewModel>> GetTopics()
         {
-            var topicsList = await GetTopicsFromDB();
+            var topicsList = await _databaseHelper.GetTopicsFromDB();
 
             var viewModel = topicsList.Select(topic => new TopicViewModel
             {

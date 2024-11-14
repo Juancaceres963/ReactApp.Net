@@ -8,7 +8,7 @@ namespace AndreinaArtistica.Controllers
     [Route("[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly ICategoriesResource _categoriesResource
+        private readonly ICategoriesResource _categoriesResource;
 
         public CategoriesController (ICategoriesResource CategoriesResource)
         {

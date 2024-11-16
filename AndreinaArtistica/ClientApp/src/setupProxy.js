@@ -9,7 +9,8 @@ const context =  [
     "/artpieces",
     "/topics",
     "/techniques",
-    "/categories"
+    "/categories",
+    "/materials"
 ];
 
 module.exports = function(app) {

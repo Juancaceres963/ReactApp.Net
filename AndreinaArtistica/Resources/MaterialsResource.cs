@@ -1,4 +1,4 @@
-﻿using AndreinaArtistica.Helpers;
+﻿using AndreinaArtistica.Helpers.Abstract;
 using AndreinaArtistica.Models;
 using AndreinaArtistica.Models.DB;
 using AndreinaArtistica.Resources.Abstract;
@@ -9,9 +9,9 @@ namespace AndreinaArtistica.Resources
     public class MaterialsResource : IMaterialsResource
     {
         private readonly AndreinartisticaContext _context;
-        private readonly DatabaseHelper _databaseHelper;
+        private readonly IDatabaseHelper _databaseHelper;
 
-        public MaterialsResource(AndreinartisticaContext context, DatabaseHelper databaseHelper)
+        public MaterialsResource(AndreinartisticaContext context, IDatabaseHelper databaseHelper)
         {
             _context = context;
             _databaseHelper = databaseHelper;
@@ -21,11 +21,7 @@ namespace AndreinaArtistica.Resources
         {
             var materialsList = await _databaseHelper.GetMaterialsFromDB();
 
-            var viewModel = materialsList.Select(material => new MaterialViewModel
-            {
-                Id = material.Id,
-                Name = material.Name,
-            });
+            var viewModel = materialsList.Select( material => new MaterialViewModel { Id = material.Id, Name = material.Name, });
 
             return viewModel;
         }

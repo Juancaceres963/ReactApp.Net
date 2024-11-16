@@ -11,7 +11,7 @@ namespace AndreinaArtistica.Helpers
         {
             _context = context;
         }
-    public async Task<List<Category>> GetCategoriesFromDB()
+        public async Task<List<Category>> GetCategoriesFromDB()
         {
             return await _context.Categories.ToListAsync();
         }

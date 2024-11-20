@@ -30,5 +30,10 @@ namespace AndreinaArtistica.Helpers
         {
             return await _context.Techniques.ToListAsync();
         }
+
+        //public Task<List<MaxPrice>> GetMaxPriceFromDB()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

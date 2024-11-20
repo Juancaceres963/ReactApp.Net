@@ -19,6 +19,7 @@ static void RegisterInterfaces(IServiceCollection services)
     services.AddScoped<ITechniquesResource, TechniquesResource>();
     services.AddScoped<ICategoriesResource, CategoriesResource>();
     services.AddScoped<IMaterialsResource, MaterialsResource>();
+    services.AddScoped<IMaxPriceResource, MaxPriceResource>();
 }
 
 // Add services to the container.

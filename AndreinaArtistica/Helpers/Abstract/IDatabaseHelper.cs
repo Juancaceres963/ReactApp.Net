@@ -11,7 +11,5 @@ namespace AndreinaArtistica.Helpers.Abstract
         public Task<List<Topic>> GetTopicsFromDB();
 
         public Task<List<Technique>> GetTechniquesFromDB();
-
-        //public Task<List<MaxPrice>> GetMaxPriceFromDB();
     }
 }

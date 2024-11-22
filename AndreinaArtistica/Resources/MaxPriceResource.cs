@@ -26,7 +26,7 @@ namespace AndreinaArtistica.Resources
             // Crear el ViewModel con el precio redondeado
             var viewModel = new List<MaxPriceViewModel>
             {
-                new MaxPriceViewModel { Price = (decimal)roundedMaxPrice }
+                new MaxPriceViewModel { Price = roundedMaxPrice }
             };
 
             return viewModel;

@@ -24,19 +24,31 @@ export class NavMenu extends Component {
   render() {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
-          <NavbarBrand tag={Link} to="/">AndreinaArtistica</NavbarBrand>
+        <Navbar className="navbar navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
+            <NavbarBrand href="/">
+                <img
+                    alt="logo"
+                    src=""
+                    style={{
+                        height: 40,
+                        width: 40
+                    }}
+                />
+            </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
             <ul className="navbar-nav flex-grow">
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                <NavLink tag={Link} className="text-white" to="/">SOBRE MI</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
+                <NavLink tag={Link} className="text-white" to="/counter">GALERIA</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                <NavLink tag={Link} className="text-white" to="/fetch-data">COMENTARIOS</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-white" to="/fetch-data">CONTACTO</NavLink>
               </NavItem>
             </ul>
           </Collapse>

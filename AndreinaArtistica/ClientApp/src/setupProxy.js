@@ -10,7 +10,8 @@ const context =  [
     "/topics",
     "/techniques",
     "/categories",
-    "/materials"
+    "/materials",
+    "/maxprice"
 ];
 
 module.exports = function(app) {

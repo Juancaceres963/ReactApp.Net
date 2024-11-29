@@ -26,14 +26,7 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
             <NavbarBrand href="/">
-                <img
-                    alt="logo"
-                    src=""
-                    style={{
-                        height: 40,
-                        width: 40
-                    }}
-                />
+                <img alt="logo" src="https://i.imgur.com/0nCLxdQ.png"/>
             </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>

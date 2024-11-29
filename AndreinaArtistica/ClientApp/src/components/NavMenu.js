@@ -26,11 +26,11 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
             <NavbarBrand href="/">
-                <img alt="logo" src="https://i.imgur.com/0nCLxdQ.png"/>
+                <img className="nav-logo-img" alt="logo" src="https://i.imgur.com/0nCLxdQ.png"/>
             </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-            <ul className="navbar-nav flex-grow">
+                    <ul className="navbar-nav navbar-list flex-grow">
               <NavItem>
                 <NavLink tag={Link} className="text-white" to="/">SOBRE MI</NavLink>
               </NavItem>

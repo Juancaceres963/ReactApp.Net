@@ -1,6 +1,7 @@
-import Counter from "./components/Counter";
-import FetchData from "./components/FetchData";
 import Home from "./components/Home";
+import Galeria from "./components/Galeria";
+import Comentarios from "./components/Comentarios";
+import Contacto from "./components/Contacto";
 
 const AppRoutes = [
   {
@@ -8,12 +9,16 @@ const AppRoutes = [
     element: <Home />
   },
   {
-    path: '/counter',
-    element: <Counter />
+    path: '/galeria',
+    element: <Galeria />
   },
   {
-    path: '/fetch-data',
-    element: <FetchData />
+      path: '/comentarios',
+    element: <Comentarios />
+  },
+  {
+      path: '/contacto',
+      element: <Contacto />
   }
 ];
 

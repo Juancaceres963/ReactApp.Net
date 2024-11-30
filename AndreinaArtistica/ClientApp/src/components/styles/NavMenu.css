@@ -1,0 +1,25 @@
+﻿.navbar {
+    background-color: #636363;
+}
+
+.nav-logo-img {
+    height: 60px;
+    margin-top: -5px;
+}
+
+.navbar-list {
+    display: flex;
+    gap: 18px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .09);
+}

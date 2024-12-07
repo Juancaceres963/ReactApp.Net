@@ -1,4 +1,4 @@
-﻿function Comentarios() {
+﻿function Galery() {
 
     return (
         <div>
@@ -7,4 +7,4 @@
     );
 }
 
-export default Comentarios;
+export default Galery;

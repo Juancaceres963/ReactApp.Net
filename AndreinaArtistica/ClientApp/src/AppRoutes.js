@@ -1,7 +1,7 @@
-import Home from "./components/Home";
-import Galeria from "./components/Galeria";
-import Comentarios from "./components/Comentarios";
-import Contacto from "./components/Contacto";
+import Home from "./pages/Home/Home";
+import Galery from "./pages/Galery/Galery";
+import Comments from "./pages/Comments/Comments";
+import Contact from "./pages/Contact/Contact";
 
 const AppRoutes = [
   {
@@ -10,15 +10,15 @@ const AppRoutes = [
   },
   {
     path: '/galeria',
-    element: <Galeria />
+      element: <Galery />
   },
   {
       path: '/comentarios',
-    element: <Comentarios />
+      element: <Comments />
   },
   {
       path: '/contacto',
-      element: <Contacto />
+      element: <Contact />
   }
 ];
 

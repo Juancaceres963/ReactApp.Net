@@ -1,4 +1,4 @@
-﻿function Contacto() {
+﻿function Comments() {
 
     return (
         <div>
@@ -7,4 +7,4 @@
     );
 }
 
-export default Contacto;
+export default Comments;

@@ -1,4 +1,4 @@
-﻿function Galeria() {
+﻿function Contact() {
 
     return (
         <div>
@@ -7,4 +7,4 @@
     );
 }
 
-export default Galeria;
+export default Contact;

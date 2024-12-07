@@ -10,15 +10,15 @@ const AppRoutes = [
   },
   {
     path: '/galeria',
-      element: <Galery />
+    element: <Galery />
   },
   {
-      path: '/comentarios',
-      element: <Comments />
+    path: '/comentarios',
+    element: <Comments />
   },
   {
-      path: '/contacto',
-      element: <Contact />
+    path: '/contacto',
+    element: <Contact />
   }
 ];
 

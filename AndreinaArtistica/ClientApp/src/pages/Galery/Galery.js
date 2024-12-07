@@ -2,7 +2,7 @@
 
     return (
         <div>
-            <h1>Contacto</h1>
+            <h1>Galey</h1>
         </div>
     );
 }

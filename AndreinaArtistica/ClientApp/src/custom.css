@@ -1,9 +1,17 @@
+/* Importando tipos de letras*/
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+.type-AB {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 /* Provide sufficient contrast against white background */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
 }
 
 a {
@@ -11,7 +19,7 @@ a {
 }
 
 code {
-  color: #E01A76;
+  color: #e01a76;
 }
 
 .btn-primary {
@@ -20,10 +28,11 @@ code {
   border-color: #1861ac;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden; /* Evita desplazamientos horizontales innecesarios */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Evita desplazamientos horizontales innecesarios */
 }

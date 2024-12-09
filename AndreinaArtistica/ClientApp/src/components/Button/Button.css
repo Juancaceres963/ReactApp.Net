@@ -1,0 +1,58 @@
+/* Estilos del botón personalizado */
+.custom-button {
+  /* Modelo de caja */
+  width: 100%;
+  padding: 20px 15px; /* Espaciado interno */
+  margin: auto; /* Centrado automático */
+  border: 5px solid transparent; /* Espacio para el borde */
+  border-radius: 20px; /* Bordes redondeados */
+  transition: all 0.5s ease;
+
+  /* Fondo y borde degradado */
+  background: linear-gradient(white, white) padding-box,
+    /* Fondo interior sólido */
+      linear-gradient(
+        115deg,
+        #6228d7 0%,
+        #bc98ea 22%,
+        #319bfe 47%,
+        #b5a9d9 64%,
+        #56f2cd 90%
+      )
+      border-box;
+  background-clip: padding-box, border-box;
+  
+
+  /* Tipografía */
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+
+  /* Cursor */
+  cursor: pointer;
+}
+
+/* Estilos del botón al pasar el cursor */
+.custom-button:hover {
+  /* Colores */
+  color: white;
+
+  /* Fondo y borde degradado */
+  background: linear-gradient(#0a86c6, #0a86c6) padding-box,
+    /* Fondo interior sólido */
+      linear-gradient(
+        135deg,
+        #6228d7 0%,
+        #bc98ea 22%,
+        #319bfe 47%,
+        #b5a9d9 64%,
+        #56f2cd 90%
+      )
+      border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.5s ease;
+}

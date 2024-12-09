@@ -1,25 +1,29 @@
 ﻿.navbar {
-    background-color: #636363;
+  background-color: #636363;
+  background-size: cover;
+  position: fixed;       /* Fija el navbar en la parte superior */
+  top: 0;                /* Se asegura de que esté pegado al borde superior */
+  left: 0;               /* Se extiende desde el borde izquierdo */
+  width: 100%;           /* Ocupa todo el ancho de la pantalla */
+  z-index: 1;
+  border-bottom: 0px !important;
 }
 
 .nav-logo-img {
-    height: 60px;
-    margin-top: -5px;
+  height: 60px;
 }
 
 .navbar-list {
-    display: flex;
-    gap: 18px;
-    font-size: 18px;
-    font-weight: bold;
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  gap: 15px;
 }
 
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+.navbar-list a {
+  padding: 0px !important;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .09);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.09);
 }

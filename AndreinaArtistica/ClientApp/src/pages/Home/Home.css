@@ -1,7 +1,8 @@
 ﻿/*Seccion de imagen*/
-
+main {
+  margin-top: 86px !important;
+}
 .imagen-principal {
-  top: -18px;
   position: relative; /* Contexto para la superposición */
   width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
   height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
@@ -88,29 +89,29 @@
 /*Seccion de texto*/
 
 .presentacion {
+  position: relative;
+  margin-top: -3%;
   display: flex;
   align-items: center;
   padding: 0px 40px;
-  gap: 30px;
+  gap: 25px;
 }
 
 .image-side {
-  position: relative;
-  height: 300px;
-}
-
-.image-side img {
-  margin-top: -80px;
-  height: 300px;
-  width: auto;
+  flex: 0 0 35%;              /* La imagen ocupa un 35% del contenedor */
+  height: auto;                 /* Mantiene la proporción de la imagen */
+  object-fit: cover;            /* Cubre el espacio sin deformarse */
 }
 
 .text-side {
+  flex: 1;   
+  padding-top: 60px;
   text-align: right;
 }
 
 .text-side h1 {
   font-size: 60px;
+  text-shadow: 2px 2px 4px #00000083;
 }
 
 .text-side p {
@@ -120,12 +121,15 @@
 
 .promotion {
   display: flex;
+  align-items: center;
   text-align: left;
-  gap: 30px;
+  gap: 10px;
 }
 
 .text-side .promotion p {
+  flex: 0 0 50%;  
   font-family: "CenturyGothicBold";
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
+  margin: 0px;
 }

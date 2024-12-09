@@ -1,17 +1,4 @@
-/* Importando tipos de letras*/
 @import './assets/fonts/fonts.css';
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Italianno&display=swap');
-.italianno-regular {
-  font-family: "Italianno", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-.archivo-black-regular {
-  font-family: "Archivo Black", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* Provide sufficient contrast against white background */
 
 * {
@@ -36,6 +23,7 @@ code {
 }
 
 body,
+main,
 html {
   margin: 0;
   padding: 0;

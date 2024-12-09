@@ -86,3 +86,46 @@
 }
 
 /*Seccion de texto*/
+
+.presentacion {
+  display: flex;
+  align-items: center;
+  padding: 0px 40px;
+  gap: 30px;
+}
+
+.image-side {
+  position: relative;
+  height: 300px;
+}
+
+.image-side img {
+  margin-top: -80px;
+  height: 300px;
+  width: auto;
+}
+
+.text-side {
+  text-align: right;
+}
+
+.text-side h1 {
+  font-size: 60px;
+}
+
+.text-side p {
+  font-family: "CenturyGothic";
+  font-size: 20px;
+}
+
+.promotion {
+  display: flex;
+  text-align: left;
+  gap: 30px;
+}
+
+.text-side .promotion p {
+  font-family: "CenturyGothicBold";
+  font-weight: bold;
+  font-size: 24px;
+}

@@ -1,6 +1,7 @@
 /* Estilos del botón personalizado */
 .custom-button {
-  width: 100%;
+  width: auto;
+  max-width: 300px;
   padding: 20px 15px;
   margin: auto;
   border: 5px solid transparent;

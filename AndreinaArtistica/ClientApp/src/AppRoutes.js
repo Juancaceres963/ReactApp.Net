@@ -1,5 +1,5 @@
 import Home from "./pages/Home/Home";
-import Galery from "./pages/Galery/Galery";
+import Gallery from "./pages/Gallery/Gallery";
 import Comments from "./pages/Comments/Comments";
 import Contact from "./pages/Contact/Contact";
 
@@ -10,7 +10,7 @@ const AppRoutes = [
   },
   {
     path: '/galeria',
-    element: <Galery />
+    element: <Gallery />
   },
   {
     path: '/comentarios',

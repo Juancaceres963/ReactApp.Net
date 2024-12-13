@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import Button from "../../components/Button/Button";
+import Carousel2 from "../../components/Carousel/carousel";
 
 function Home() {
+  useEffect(() => {
+    const carousel = document.getElementById("carousel");
+    const items = document.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
+    const angle = 360 / totalItems;
+    let currentAngle = 0;
+
+    // Posicionar cada elemento en un círculo
+    items.forEach((item, index) => {
+      item.style.transform = `rotateY(${index * angle}deg) translateZ(300px)`;
+    });
+
+    // Funciones para girar el carrusel
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    if (nextBtn && prevBtn && carousel) {
+      nextBtn.addEventListener("click", () => {
+        currentAngle -= angle;
+        carousel.style.transform = `rotateY(${currentAngle}deg)`;
+      });
+
+      prevBtn.addEventListener("click", () => {
+        currentAngle += angle;
+        carousel.style.transform = `rotateY(${currentAngle}deg)`;
+      });
+    }
+
+    // Limpieza para evitar fugas de memoria
+    return () => {
+      if (nextBtn && prevBtn) {
+        nextBtn.removeEventListener("click", () => {});
+        prevBtn.removeEventListener("click", () => {});
+      }
+    };
+  }, []); // Se ejecuta una sola vez al montar el componente
+
   return (
     <div>
       <main>
@@ -16,7 +54,7 @@ function Home() {
             <img
               className="overlay-image"
               src="https://i.imgur.com/STSCdXA.png"
-              alt="Logo y firma art�stica de la artista Andreina O."
+              alt="Logo y firma artística de la artista Andreina O."
             />
             <h2 className="text-below-rigth archivo-black-regular">
               GALERIA VIRTUAL
@@ -28,7 +66,7 @@ function Home() {
             <img
               className="image-perfil"
               src="https://i.imgur.com/zfp9IQ5.png"
-              alt="Foto de perfeil Andreina O."
+              alt="Foto de perfil Andreina O."
             />
           </div>
           <div className="text-side">
@@ -47,33 +85,134 @@ function Home() {
             </div>
           </div>
         </section>
-        <section class="gallery-home">
-          <h2 class="italianno-regular gallery-home-title">Galería</h2>
-          <div class="gallery-container">
-            <div class="gallery-item" id="item-1">
-              <img src="https://i.imgur.com/TstCfOp.png" alt="Categoría Retratos" />
+        <section className="gallery-home">
+          <h2 className="italianno-regular gallery-home-title">Galería</h2>
+          <div className="carousel-container">
+            <div className="carousel" id="carousel">
+              {/* <div className="carousel-item">
+                <img src="https://i.imgur.com/TstCfOp.png" alt="Categoría 1" />
+              </div>
+              <div className="carousel-item">
+                <img src="https://i.imgur.com/Xby40x9.png" alt="Categoría 2" />
+              </div> */}
+              <div className="carousel-item" id="item-2">
+                <img
+                  src="https://i.imgur.com/Xby40x9.png"
+                  alt="Categoría Arte Religioso"
+                />
+              </div>
+              <div className="carousel-item" id="item-3">
+                <img
+                  src="https://i.imgur.com/U5DlRB4.png"
+                  alt="Categoría Retratos de Mascotas"
+                />
+              </div>
+              <div className="carousel-item" id="item-4">
+                <img
+                  src="https://i.imgur.com/u5eaXDR.png"
+                  alt="Categoría Rostros y figuras humanas"
+                />
+              </div>
+              <div className="carousel-item" id="item-5">
+                <img
+                  src="https://i.imgur.com/riRDxEE.png"
+                  alt="Categoría Animales"
+                />
+              </div>
+              <div className="carousel-item" id="item-6">
+                <img
+                  src="https://i.imgur.com/o10eSsj.png"
+                  alt="Categoría Paisajes"
+                />
+              </div>
+              <div className="carousel-item" id="item-7">
+                <img
+                  src="https://i.imgur.com/9FXbQIk.png"
+                  alt="Categoría Naturaleza"
+                />
+              </div>
+              <div className="carousel-item" id="item-2">
+                <img
+                  src="https://i.imgur.com/Xby40x9.png"
+                  alt="Categoría Arte Religioso"
+                />
+              </div>
+              <div className="carousel-item" id="item-3">
+                <img
+                  src="https://i.imgur.com/U5DlRB4.png"
+                  alt="Categoría Retratos de Mascotas"
+                />
+              </div>
+              <div className="carousel-item" id="item-4">
+                <img
+                  src="https://i.imgur.com/u5eaXDR.png"
+                  alt="Categoría Rostros y figuras humanas"
+                />
+              </div>
+              <div className="carousel-item" id="item-5">
+                <img
+                  src="https://i.imgur.com/riRDxEE.png"
+                  alt="Categoría Animales"
+                />
+              </div>
+              <div className="carousel-item" id="item-6">
+                <img
+                  src="https://i.imgur.com/o10eSsj.png"
+                  alt="Categoría Paisajes"
+                />
+              </div>
+              <div className="carousel-item" id="item-7">
+                <img
+                  src="https://i.imgur.com/9FXbQIk.png"
+                  alt="Categoría Naturaleza"
+                />
+              </div>
+              <div className="carousel-item" id="item-2">
+                <img
+                  src="https://i.imgur.com/Xby40x9.png"
+                  alt="Categoría Arte Religioso"
+                />
+              </div>
+              <div className="carousel-item" id="item-3">
+                <img
+                  src="https://i.imgur.com/U5DlRB4.png"
+                  alt="Categoría Retratos de Mascotas"
+                />
+              </div>
+              <div className="carousel-item" id="item-4">
+                <img
+                  src="https://i.imgur.com/u5eaXDR.png"
+                  alt="Categoría Rostros y figuras humanas"
+                />
+              </div>
+              <div className="carousel-item" id="item-5">
+                <img
+                  src="https://i.imgur.com/riRDxEE.png"
+                  alt="Categoría Animales"
+                />
+              </div>
+              <div className="carousel-item" id="item-6">
+                <img
+                  src="https://i.imgur.com/o10eSsj.png"
+                  alt="Categoría Paisajes"
+                />
+              </div>
+              <div className="carousel-item" id="item-7">
+                <img
+                  src="https://i.imgur.com/9FXbQIk.png"
+                  alt="Categoría Naturaleza"
+                />
+              </div>
+              {/* Otros elementos del carrusel */}
             </div>
-            <div class="gallery-item" id="item-2">
-              <img src="https://i.imgur.com/Xby40x9.png" alt="Categoría Arte Religioso" />
-            </div>
-            <div class="gallery-item" id="item-3">
-              <img src="https://i.imgur.com/U5DlRB4.png" alt="Categoría Retratos de Mascotas" />
-            </div>
-            <div class="gallery-item" id="item-4">
-              <img src="https://i.imgur.com/u5eaXDR.png" alt="Categoría Rostros y figuras humanas" />
-            </div>
-            <div class="gallery-item" id="item-5">
-              <img src="https://i.imgur.com/riRDxEE.png" alt="Categoría Animales" />
-            </div>
-            <div class="gallery-item" id="item-6">
-              <img src="https://i.imgur.com/o10eSsj.png" alt="Categoría Paisajes" />
-            </div>
-            <div class="gallery-item" id="item-7">
-              <img src="https://i.imgur.com/9FXbQIk.png" alt="Categoría Naturaleza" />
-            </div>
+            <button id="prevBtn">←</button>
+            <button id="nextBtn">→</button>
           </div>
           <Button texto="Ir a galeria" ruta="./galeria" />
         </section>
+        <div className="carousel-bgd">
+          <Carousel2 />
+        </div>
       </main>
     </div>
   );

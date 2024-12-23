@@ -1,4 +1,4 @@
-﻿function Gallery() {
+﻿ function Gallery() {
 
     return (
         <div>

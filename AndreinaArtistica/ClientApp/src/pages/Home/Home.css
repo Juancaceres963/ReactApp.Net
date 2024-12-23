@@ -1,7 +1,7 @@
 ﻿/*Seccion de imagen*/
 
 main {
-  margin-top: 86px !important;
+  margin-top: 86px;
 }
 .imagen-principal {
   position: relative; /* Contexto para la superposición */
@@ -148,6 +148,7 @@ main {
 .gallery-home h2 {
   font-size: 60px;
   text-shadow: 2px 2px 4px #00000083;
+  margin-bottom: 0px !important;
 }
 
 /* Contenedor de las imágenes */

@@ -1,9 +1,7 @@
 ﻿/*Seccion de imagen*/
 
-main {
-  margin-top: 86px;
-}
 .imagen-principal {
+  margin-top: 86px;
   position: relative; /* Contexto para la superposición */
   width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
   height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
@@ -111,7 +109,7 @@ main {
 }
 
 .text-side h1 {
-  font-size: 60px;
+  font-size: 80px;
   text-shadow: 2px 2px 4px #00000083;
 }
 
@@ -140,13 +138,12 @@ main {
 /* Contenedor principal de la sección */
 .gallery-home {
   text-align: center;
-  padding: 50px 20px;
-  background-color: #f9f9f9;
+  padding: 30px 20px;
 }
 
 /* Título de la galería */
 .gallery-home h2 {
-  font-size: 60px;
+  font-size: 80px;
   text-shadow: 2px 2px 4px #00000083;
   margin-bottom: 0px !important;
 }

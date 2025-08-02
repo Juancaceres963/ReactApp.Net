@@ -21,7 +21,6 @@
       )
       border-box;
   background-clip: padding-box, border-box;
-  
 
   /* Tipografía */
   font-family: Arial, sans-serif;
@@ -42,7 +41,15 @@
   color: white;
 
   /* Fondo y borde degradado */
-  background: linear-gradient(#0a86c6, #0a86c6) padding-box,
+  background: linear-gradient(
+        135deg,
+        #6228d7 0%,
+        #bc98ea 22%,
+        #319bfe 47%,
+        #b5a9d9 64%,
+        #56f2cd 90%
+      )
+      padding-box,
     /* Fondo interior sólido */
       linear-gradient(
         135deg,
@@ -56,4 +63,3 @@
   background-clip: padding-box, border-box;
   transition: all 0.5s ease;
 }
-

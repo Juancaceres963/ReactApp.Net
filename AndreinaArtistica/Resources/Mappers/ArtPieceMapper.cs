@@ -11,6 +11,7 @@ namespace AndreinaArtistica.Resources.Mappers
             {
                 Id = artPiece.Id,
                 Title = artPiece.Title,
+                ImageUrl = artPiece.ImageUrl,
                 Elaborated = artPiece.Elaborated,
                 Location = artPiece.Location,
                 Price = artPiece.Availability == true ? artPiece.Price : null,

@@ -4,6 +4,7 @@ namespace AndreinaArtistica.Models
     {
         public int Id { get; set; }
         public string? Title { get; set; }
+        public string ImageUrl { get; set; }
         public string? Category { get; set; }
         public string? Material { get; set; }
         public string? Topic { get; set; }

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Home.css";
+import Banner from "../../components/Banner/Banner";
 import Button from "../../components/Button/Button";
 import Carousel2 from "../../components/Carousel/carousel";
 
@@ -44,24 +45,8 @@ function Home() {
   return (
     <div>
       <main>
-        <section className="imagen-principal">
-          <div className="image-wrapper">
-            <img
-              className="background-image"
-              src="https://i.imgur.com/q7Xep2y.png"
-              alt="Una sala llena de cuadros, como imagen de fondo"
-            />
-            <img
-              className="overlay-image"
-              src="https://i.imgur.com/STSCdXA.png"
-              alt="Logo y firma artística de la artista Andreina O."
-            />
-            <h2 className="text-below-rigth archivo-black-regular">
-              GALERIA VIRTUAL
-            </h2>
-          </div>
-        </section>
-        <section className="container presentacion">
+        < Banner />
+        {/* <section className="container presentacion">
           <div className="image-side">
             <img
               className="image-perfil"
@@ -89,7 +74,7 @@ function Home() {
           <h2 className="italianno-regular gallery-home-title">Galería</h2>
             <Carousel2 />
           <Button texto="Ir a galeria" ruta="./galeria" />
-        </section>
+        </section> */}
       </main>
     </div>
   );

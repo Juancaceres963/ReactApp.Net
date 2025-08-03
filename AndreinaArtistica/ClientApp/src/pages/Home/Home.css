@@ -1,49 +1,48 @@
 ﻿/*Seccion de imagen*/
 
-.imagen-principal {
+/* .imagen-principal {
   margin-top: 86px;
-  position: relative; /* Contexto para la superposición */
-  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
-  height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
-  overflow: hidden; /* Evita cualquier desbordamiento */
+  position: relative; 
+  width: 100vw; 
+  height: 80vh; 
+  overflow: hidden; 
 }
 
 .background-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Ocupa todo el ancho */
-  height: 100%; /* Ocupa todo el alto */
-  object-fit: cover; /* Cubre todo el contenedor manteniendo proporciones */
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
 
 .overlay-image {
   position: absolute;
   top: 45%;
-  left: 50%; /* Centra horizontalmente */
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw; /* Tamaño dinámico más grande basado en el ancho de la ventana */
-  max-width: 900px; /* Límite máximo para pantallas grandes */
-  min-width: 250px; /* Límite mínimo para pantallas pequeñas */
-  height: auto; /* Mantiene la proporción de la imagen */
+  width: 80vw; 
+  max-width: 900px;
+  min-width: 250px; 
+  height: auto; 
 }
 
 .text-below-rigth {
   position: absolute;
   color: white;
-  bottom: 8%; /* Ajusta la posición vertical */
-  right: 10%; /* Ajusta la posición horizontal */
+  bottom: 8%; 
+  right: 10%; 
   font-size: 34px;
 }
 
-/* Media Queries para personalizar en pantallas específicas */
 @media (max-width: 1024px) {
   .background-image {
     height: 500px;
   }
   .overlay-image {
     top: 38%;
-    width: 70vw; /* Más grande en pantallas medianas */
+    width: 70vw;
     max-width: 800px;
   }
 
@@ -59,7 +58,7 @@
   }
   .overlay-image {
     top: 28%;
-    width: 70vw; /* Más grande en pantallas pequeñas */
+    width: 70vw;
     max-width: 600px;
   }
 
@@ -75,7 +74,7 @@
   }
   .overlay-image {
     top: 24%;
-    width: 80vw; /* Más grande en pantallas pequeñas */
+    width: 80vw; 
     max-width: 600px;
   }
 
@@ -83,7 +82,7 @@
     bottom: 54%;
     font-size: 18px;
   }
-}
+} */
 
 /*Seccion de texto*/
 

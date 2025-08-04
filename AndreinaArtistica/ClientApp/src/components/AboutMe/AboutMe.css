@@ -1,0 +1,96 @@
+/*Seccion de texto*/
+
+.presentacion {
+  position: relative;
+  margin-top: -5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 40px;
+  gap: 25px;
+  transition: all 0.8s ease;
+}
+
+.image-side {
+  flex: 0 0 35%; /* La imagen ocupa un 35% del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Cubre el espacio sin deformarse */
+}
+
+.text-side {
+  flex: 1;
+  padding-top: 60px;
+  text-align: right;
+}
+
+.text-side h1 {
+  text-align: end;
+  font-size: 80px;
+  text-shadow: 2px 2px 4px #00000083;
+}
+
+.text-side p {
+  font-family: "CenturyGothic";
+  font-size: 20px;
+}
+
+.promotion {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+}
+
+.text-side .promotion p {
+  flex: 0 0 50%;
+  font-family: "CenturyGothicBold";
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px;
+}
+
+@media (max-width: 1200px) {
+  .text-side h1 {
+    font-size: 60px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 991.98px) {
+  .presentacion {
+    margin-top: 0%;
+  }
+  .image-perfil {
+    width: 300px;
+  }
+  .text-side {
+    padding-top: 30px;
+  }
+  .text-side h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .presentacion {
+    flex-direction: column;
+    margin-top: -5%;
+  }
+  .image-perfil {
+    width: 100%;
+  }
+  .text-side {
+    padding-top: 0%;
+    text-align: center;
+  }
+  .text-side h1 {
+    text-align: center;
+  }
+}
+
+/* Teléfonos */
+@media (max-width: 575.98px) {
+  .presentacion {
+    margin-top: -12%;
+  }
+}

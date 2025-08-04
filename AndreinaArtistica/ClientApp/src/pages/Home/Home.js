@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import Banner from "../../components/Banner/Banner";
+import AboutMe from "../../components/AboutMe/AboutMe";
 // import Button from "../../components/Button/Button";
 // import Carousel2 from "../../components/Carousel/carousel";
 
@@ -46,35 +47,12 @@ function Home() {
     <div>
       <main>
         < Banner />
-        {/* <section className="container presentacion">
-          <div className="image-side">
-            <img
-              className="image-perfil"
-              src="https://i.imgur.com/zfp9IQ5.png"
-              alt="Foto de perfil Andreina O."
-            />
-          </div>
-          <div className="text-side">
-            <h1 className="italianno-regular">Andreina Orellana</h1>
-            <p>
-              A través del uso magistral de colores puros e intensos, esta
-              talentosa artista venezolana no solo pinta lienzos, sino que
-              además teje historias visuales que capturan la esencia misma de
-              los sentimientos humanos. Cada trazo y matiz busca resaltar en la
-              belleza estética, las virtudes más profundas de la experiencia
-              humana.
-            </p>
-            <div className="promotion">
-              <p>Retratos, composiciones personalizadas por ENCARGO... </p>
-              <Button texto="Encarga tu obra" ruta="./galeria" />
-            </div>
-          </div>
-        </section>
-        <section className="gallery-home">
+        < AboutMe />
+        {/* <section className="gallery-home">
           <h2 className="italianno-regular gallery-home-title">Galería</h2>
             <Carousel2 />
           <Button texto="Ir a galeria" ruta="./galeria" />
-        </section> */}
+        </section>  */}
       </main>
     </div>
   );

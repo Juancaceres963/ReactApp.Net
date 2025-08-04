@@ -34,6 +34,15 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   transition: opacity 0.3s ease;
   text-align: center;
 }
+nav.navbar .navbar-nav .nav-link.navbar-link:last-child {
+  padding-right: 0;
+}
+
+@media (max-width: 991.98px) {
+  nav.navbar .navbar-nav .nav-link.navbar-link:last-child {
+  padding-right: 18px;
+}
+}
 
 nav.navbar .navbar-nav .nav-link.navbar-link:hover,
 nav.navbar .navbar-nav .nav-link.navbar-link.active {
@@ -59,7 +68,7 @@ nav.navbar .navbar-toggler-icon {
   position: relative;
   background-image: none;
   top: -2px;
-  transition: all 300ms linear;
+  transition: all 300ms ease;
 }
 
 nav.navbar .navbar-toggler-icon:before,

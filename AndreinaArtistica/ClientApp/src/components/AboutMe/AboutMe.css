@@ -1,5 +1,10 @@
 /*Seccion de texto*/
-
+.sobre-mi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .presentacion {
   position: relative;
   margin-top: -5%;
@@ -35,10 +40,14 @@
 }
 
 .promotion {
+  width: 100%;
+  padding: 15px;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  text-align: left;
   gap: 10px;
+  text-align: center;
+  overflow: hidden;
 }
 
 .text-side .promotion p {
@@ -46,7 +55,6 @@
   font-family: "CenturyGothicBold";
   font-weight: bold;
   font-size: 20px;
-  margin: 0px;
 }
 
 @media (max-width: 1200px) {
@@ -57,6 +65,9 @@
 
 /* Tablets */
 @media (max-width: 991.98px) {
+  .sobre-mi {
+    gap: 20px;
+  }
   .presentacion {
     margin-top: 0%;
   }
@@ -75,6 +86,7 @@
   .presentacion {
     flex-direction: column;
     margin-top: -5%;
+    padding-bottom: 10px;
   }
   .image-perfil {
     width: 100%;
@@ -85,6 +97,11 @@
   }
   .text-side h1 {
     text-align: center;
+  }
+  .promotion {
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding-top: 0;
   }
 }
 

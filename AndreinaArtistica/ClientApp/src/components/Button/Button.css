@@ -1,23 +1,24 @@
 /* Estilos del botón personalizado */
 .custom-button {
-  /* Modelo de caja */
-  width: 100%;
-  padding: 20px 15px; /* Espaciado interno */
-  margin: auto; /* Centrado automático */
-  border: 5px solid transparent; /* Espacio para el borde */
-  border-radius: 20px; /* Bordes redondeados */
-  transition: all 0.5s ease;
+  min-width: 300px;
+  height: 90px;
+  border: 5px solid transparent;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* Fondo y borde degradado */
   background: linear-gradient(white, white) padding-box,
-    /* Fondo interior sólido */
-      linear-gradient(
+    linear-gradient(
         115deg,
         #6228d7 0%,
-        #bc98ea 22%,
-        #319bfe 47%,
-        #b5a9d9 64%,
-        #56f2cd 90%
+        #bc98ea 20%,
+        #319bfe 40%,
+        #b5a9d9 60%,
+        #56f2cd 80%,
+        #6228d7 100% /* El último color coincide con el primero */
       )
       border-box;
   background-clip: padding-box, border-box;
@@ -33,33 +34,80 @@
 
   /* Cursor */
   cursor: pointer;
+
+  /* Transiciones suaves */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Estilos del botón al pasar el cursor */
+/* Efecto del borde animado en hover */
 .custom-button:hover {
-  /* Colores */
   color: white;
-
-  /* Fondo y borde degradado */
-  background: linear-gradient(
-        135deg,
+  background: linear-gradient(#0a86c6, #0a86c6) padding-box,
+    linear-gradient(
+        115deg,
         #6228d7 0%,
-        #bc98ea 22%,
-        #319bfe 47%,
-        #b5a9d9 64%,
-        #56f2cd 90%
-      )
-      padding-box,
-    /* Fondo interior sólido */
-      linear-gradient(
-        135deg,
-        #6228d7 0%,
-        #bc98ea 22%,
-        #319bfe 47%,
-        #b5a9d9 64%,
-        #56f2cd 90%
+        #bc98ea 20%,
+        #319bfe 40%,
+        #b5a9d9 60%,
+        #56f2cd 80%,
+        #6228d7 100%
       )
       border-box;
   background-clip: padding-box, border-box;
-  transition: all 0.5s ease;
+  animation: bounce 0.8s ease forwards;
+}
+
+/* Efecto de animación del borde degradado continuo */
+.custom-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 20px;
+  padding: 5px;
+  background: linear-gradient(
+    115deg,
+    #6228d7,
+    #6228d7,
+    #6228d7,
+    #b5a9d9,
+    #31fec0,
+    #319bfe,
+    #0d6cf0,
+    #b5a9d9,
+    #6228d7,
+    #6228d7,
+    #6228d7
+  );
+  background-size: 1000% 1500%; /* Aumenta el tamaño del fondo para reducir el salto */
+  z-index: -1;
+  animation: border-rotate 10s linear infinite; /* Ajusta la duración para un movimiento más fluido */
+}
+
+/* Animación del borde degradado */
+@keyframes border-rotate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

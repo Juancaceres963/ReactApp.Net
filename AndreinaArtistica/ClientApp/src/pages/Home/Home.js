@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import Banner from "../../components/Banner/Banner";
-import Button from "../../components/Button/Button";
-import Carousel2 from "../../components/Carousel/carousel";
+// import Button from "../../components/Button/Button";
+// import Carousel2 from "../../components/Carousel/carousel";
 
 function Home() {
   useEffect(() => {

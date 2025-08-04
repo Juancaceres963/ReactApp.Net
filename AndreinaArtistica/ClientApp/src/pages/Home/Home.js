@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Home.css";
 import Banner from "../../components/Banner/Banner";
 import AboutMe from "../../components/AboutMe/AboutMe";
+import Carousel from "../../components/Carousel/carousel"
 // import Button from "../../components/Button/Button";
 // import Carousel2 from "../../components/Carousel/carousel";
 
@@ -48,11 +49,7 @@ function Home() {
       <main>
         < Banner />
         < AboutMe />
-        {/* <section className="gallery-home">
-          <h2 className="italianno-regular gallery-home-title">Galería</h2>
-            <Carousel2 />
-          <Button texto="Ir a galeria" ruta="./galeria" />
-        </section>  */}
+        < Carousel />git add 
       </main>
     </div>
   );

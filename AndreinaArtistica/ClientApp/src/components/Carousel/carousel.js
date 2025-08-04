@@ -1,176 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import "./carousel.css";
-import { useState } from "react";
+import Button from "../Button/Button";
+import Title from "../Title/Title";
+
+const images = [
+  "https://i.imgur.com/TstCfOp.png",
+  "https://i.imgur.com/Xby40x9.png",
+  "https://i.imgur.com/U5DlRB4.png",
+  "https://i.imgur.com/u5eaXDR.png",
+  "https://i.imgur.com/riRDxEE.png",
+  "https://i.imgur.com/o10eSsj.png",
+  "https://i.imgur.com/9FXbQIk.png",
+  "https://i.imgur.com/TstCfOp.png",
+  "https://i.imgur.com/Xby40x9.png",
+  "https://i.imgur.com/U5DlRB4.png",
+  "https://i.imgur.com/u5eaXDR.png",
+  "https://i.imgur.com/riRDxEE.png",
+  "https://i.imgur.com/o10eSsj.png",
+  "https://i.imgur.com/9FXbQIk.png",
+  "https://i.imgur.com/TstCfOp.png",
+  "https://i.imgur.com/Xby40x9.png",
+  "https://i.imgur.com/U5DlRB4.png",
+  "https://i.imgur.com/u5eaXDR.png",
+  "https://i.imgur.com/riRDxEE.png",
+  "https://i.imgur.com/o10eSsj.png",
+  "https://i.imgur.com/9FXbQIk.png",
+];
 
 const Carousel = () => {
-  const [currentButton, setCurrentButton] = useState();
+  const [current, setCurrent] = useState(10);
+  const total = images.length;
 
-  const selectCurrentButton = (currentIndex) => {
-    setCurrentButton(currentIndex);
+  const handleClick = (index) => {
+    setCurrent(index);
   };
-  const Buttons = () => {
-    let arrayButtons = [];
-    for (let i = 7; i < 14; i++) {
-      arrayButtons.push(
-        <input
-          key={i}
-          type="button"
-          position={i}
-          className={`${i !== currentButton ? "navinput" : "active"}`}
-          onClick={() => selectCurrentButton(i)}
-        />
-      );
-    }
-    return arrayButtons;
+
+  const getTransformStyles = (index) => {
+    const r = index - current;
+    const abs = Math.abs(r);
+
+    return {
+      transform: `rotateY(${-10 * r}deg) translateX(${-300 * r}px)`,
+      zIndex: total - abs,
+      filter: abs === 0 ? "none" : "blur(3px)",
+      width: abs === 0 ? "340px" : "270px",
+      height: abs === 0 ? "460px" : "380px",
+    };
   };
 
   return (
-    <>
-      <div className="main-section">
-        <div className="carousel__content">
-          <div className="cards__content">
-            <main id="carousel">
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/TstCfOp.png"
-                  alt="Categoría Retratos"
-                />
+    <div className="main-section">
+      < Title text="Galeria"/>
+      <div className="carousel__content">
+        <div className="cards__content">
+          <main id="carousel">
+            {images.map((src, index) => (
+              <div
+                key={index}
+                className="item"
+                style={getTransformStyles(index)}
+                onClick={() => handleClick(index)}
+              >
+                <img className="img__card" src={src} alt={`Image ${index}`} />
               </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/Xby40x9.png"
-                  alt="Categoría Arte Religioso"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/U5DlRB4.png"
-                  alt="Categoría Retratos de Mascotas"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/u5eaXDR.png"
-                  alt="Categoría Rostros y figuras humanas"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/riRDxEE.png"
-                  alt="Categoría Animales"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/o10eSsj.png"
-                  alt="Categoría Paisajes"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/9FXbQIk.png"
-                  alt="Categoría Naturaleza"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/TstCfOp.png"
-                  alt="Categoría Retratos"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/Xby40x9.png"
-                  alt="Categoría Arte Religioso"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/U5DlRB4.png"
-                  alt="Categoría Retratos de Mascotas"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/u5eaXDR.png"
-                  alt="Categoría Rostros y figuras humanas"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/riRDxEE.png"
-                  alt="Categoría Animales"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/o10eSsj.png"
-                  alt="Categoría Paisajes"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/9FXbQIk.png"
-                  alt="Categoría Naturaleza"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/TstCfOp.png"
-                  alt="Categoría Retratos"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/Xby40x9.png"
-                  alt="Categoría Arte Religioso"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/U5DlRB4.png"
-                  alt="Categoría Retratos de Mascotas"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/u5eaXDR.png"
-                  alt="Categoría Rostros y figuras humanas"
-                />
-              </div>
-              <div className={"item post" + currentButton + ""}>
-                <img
-                  className="img__card"
-                  src="https://i.imgur.com/riRDxEE.png"
-                  alt="Categoría Animales"
-                />
-              </div>
-            </main>
-            <div className="buttons__groups">
-              <Buttons />
-            </div>
-          </div>
+            ))}
+          </main>
         </div>
       </div>
-    </>
+      <div className="container container-button-carousel">
+        <Button texto="ir a galeria" ruta="./galeria" />
+      </div>
+    </div>
   );
 };
 

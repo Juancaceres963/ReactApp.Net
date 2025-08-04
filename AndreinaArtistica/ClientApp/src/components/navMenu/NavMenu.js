@@ -1,68 +1,125 @@
-import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarBrand,
-  NavbarToggler,
-  NavItem,
-  NavLink,
-} from "reactstrap";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NavMenu.css";
 
-const NavMenu = () => {
-  const [collapsed, setCollapsed] = useState(true);
+export const NavMenu = () => {
+  const [activeLink, setActiveLink] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleNavbar = () => {
-    setCollapsed(!collapsed);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleNavigation = (section, path) => {
+    setActiveLink(section);
+    const isHome = location.pathname === "/";
+    const hasHash = location.hash;
+
+    if (!isHome) {
+      navigate("/");
+    } else if (hasHash) {
+      // Usamos la API nativa para limpiar el hash sin recargar
+      setTimeout(() => {
+        window.history.replaceState(null, "", "/Andreinartistica");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    const scrollToSection = () => {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `#${section}`);
+      }
+    };
+
+    if (location.pathname !== path) {
+      navigate(path + (section ? `#${section}` : ""));
+    } else {
+      scrollToSection();
+    }
+
+    setTimeout(() => setExpanded(false), 300);
   };
 
   return (
-    <header>
-      <Navbar
-        className="navbar navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3"
-        container
-        light
-      >
-        <NavbarBrand href="/">
-          <img
-            className="nav-logo-img"
-            alt="logo"
-            src="https://i.imgur.com/0nCLxdQ.png"
-          />
-        </NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse
-          className="d-sm-inline-flex flex-sm-row-reverse"
-          isOpen={!collapsed}
-          navbar
+    <Navbar
+      expand="lg"
+      expanded={expanded}
+      onToggle={(isExpanded) => setExpanded(isExpanded)}
+      className={`navbar ${scrolled || expanded ? "scrolled" : ""}`}
+      fixed="top"
+    >
+      <Container>
+        <Navbar.Brand
+          onClick={() => {
+            setExpanded(false);
+            if (location.pathname !== "/") {
+              navigate("/");
+            } else {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              window.history.replaceState(null, "", "/");
+            }
+          }}
         >
-          <ul className="navbar-nav navbar-list flex-grow">
-            <NavItem>
-              <NavLink tag={Link} className="text-white" to="/">
-                SOBRE MI
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} className="text-white" to="/galeria">
-                GALERIA
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} className="text-white" to="/comentarios">
-                COMENTARIOS
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} className="text-white" to="/contacto">
-                CONTACTO
-              </NavLink>
-            </NavItem>
-          </ul>
-        </Collapse>
-      </Navbar>
-    </header>
+          <img
+            src="https://i.imgur.com/0nCLxdQ.png"
+            alt="logo"
+            className="nav-logo-img"
+          />
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav">
+          <span className="navbar-toggler-icon"></span>
+        </Navbar.Toggle>
+
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link
+              className={
+                activeLink === "sobremi" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => handleNavigation("sobremi", "/")}
+            >
+              SOBRE MÍ
+            </Nav.Link>
+            <Nav.Link
+              className={
+                activeLink === "galeria" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => handleNavigation("galeria", "/galeria")}
+            >
+              GALERÍA
+            </Nav.Link>
+            <Nav.Link
+              className={
+                activeLink === "comentarios"
+                  ? "active navbar-link"
+                  : "navbar-link"
+              }
+              onClick={() => handleNavigation("comentarios", "/comentarios")}
+            >
+              COMENTARIOS
+            </Nav.Link>
+            <Nav.Link
+              className={
+                activeLink === "contacto" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => handleNavigation("contacto", "/contacto")}
+            >
+              CONTACTO
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
-
-export default NavMenu;

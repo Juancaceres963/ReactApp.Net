@@ -1,6 +1,7 @@
 import React from "react";
 import "./AboutMe.css";
 import Button from "../Button/Button";
+import Title from "../Title/Title";
 
 const AboutMe = () => {
   return (
@@ -15,7 +16,7 @@ const AboutMe = () => {
           />
         </div>
         <div className="text-side">
-          <h1 className="italianno-regular">Andreina Orellana</h1>
+          < Title text="Andreina Orellana"/>
           <p>
             A través del uso magistral de colores puros e intensos, esta
             talentosa artista venezolana no solo pinta lienzos, sino que además

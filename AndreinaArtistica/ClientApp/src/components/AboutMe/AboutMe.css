@@ -28,11 +28,11 @@
   text-align: right;
 }
 
-.text-side h1 {
+/* .text-side h1 {
   text-align: end;
   font-size: 80px;
   text-shadow: 2px 2px 4px #00000083;
-}
+} */
 
 .text-side p {
   font-family: "CenturyGothic";
@@ -58,9 +58,9 @@
 }
 
 @media (max-width: 1200px) {
-  .text-side h1 {
+  /* .text-side h1 {
     font-size: 60px;
-  }
+  } */
 }
 
 /* Tablets */
@@ -77,9 +77,9 @@
   .text-side {
     padding-top: 30px;
   }
-  .text-side h1 {
+  /* .text-side h1 {
     font-size: 50px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
@@ -95,9 +95,9 @@
     padding-top: 0%;
     text-align: center;
   }
-  .text-side h1 {
+  /* .text-side h1 {
     text-align: center;
-  }
+  } */
   .promotion {
     flex-direction: column-reverse;
     gap: 20px;

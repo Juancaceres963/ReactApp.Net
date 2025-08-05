@@ -1,0 +1,121 @@
+.footer {
+  background-color: #595959;
+}
+
+.footer-container {
+  transition: all 0.5s ease ;
+  font-family: Centra;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  flex-wrap: wrap; /* Para que sea responsive de forma natural */
+}
+
+.footer-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.footer-container > div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.info-left p{
+  width: 225px;
+  font-family: "CenturyGothicBold";
+  font-weight: 700;
+  color: white;
+  transition: all 0.5s ease ;
+}
+.info-left p:last-child{
+  width: 225px;
+  font-family: "CenturyGothic";
+  font-weight: 400;
+  color: rgb(212, 212, 212);
+}
+
+.info-right {
+  width: 225px;
+  text-align: end;
+  font-family: "CenturyGothic";
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  transition: all 0.5s ease ;
+}
+
+.logo-footer {
+  height: 140px;
+  object-fit: contain;
+  transition: all 0.5s ease ;
+}
+
+.footer-redes {
+  font-size: 20px;
+}
+
+.social-icon {
+  padding-bottom: 10px;
+}
+
+.social-icon a img{
+  height: 40px;
+}
+
+.copy {
+  width: 100%;
+  color: #292A2C;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  background-color: #D9D9D9;
+  margin-bottom: 25px;
+  font-family: "CenturyGothic";
+}
+
+/* ----------- Media Queries ----------- */
+@media only screen and (max-width: 992px) {
+  .footer-container {
+    padding-top: 30px;
+    flex-direction: column;
+  }
+
+  .info-left {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .info-right {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .footer-container form {
+    padding: 0 5px;
+  }
+
+  .logo-footer {
+    margin-top: 0;
+  }
+
+  .footer-redes .social-icon {
+    padding-top: 0;
+  }
+
+  div.form_form__2HN1S {
+    padding-top: 0;
+  }
+}
+
+/* Teléfonos */
+@media (max-width: 575.98px) {
+  .logo-footer {
+    height: 100px;
+  }
+}

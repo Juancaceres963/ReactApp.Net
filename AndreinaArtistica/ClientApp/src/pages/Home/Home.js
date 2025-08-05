@@ -3,8 +3,7 @@ import "./Home.css";
 import Banner from "../../components/Banner/Banner";
 import AboutMe from "../../components/AboutMe/AboutMe";
 import Carousel from "../../components/Carousel/carousel"
-// import Button from "../../components/Button/Button";
-// import Carousel2 from "../../components/Carousel/carousel";
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   useEffect(() => {
@@ -49,7 +48,8 @@ function Home() {
       <main>
         < Banner />
         < AboutMe />
-        < Carousel />git add 
+        < Carousel />
+        < Footer />
       </main>
     </div>
   );

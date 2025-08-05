@@ -29,6 +29,7 @@ code {
 body,
 main,
 html {
+  scroll-padding-top: 100px;
   margin: 0;
   padding: 0;
   width: 100%;

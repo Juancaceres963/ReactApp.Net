@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./carousel.css";
 import Button from "../Button/Button";
 import Title from "../Title/Title";
@@ -28,6 +28,7 @@ const images = [
 ];
 
 const Carousel = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 576);
   const [current, setCurrent] = useState(10);
   const total = images.length;
 
@@ -35,22 +36,41 @@ const Carousel = () => {
     setCurrent(index);
   };
 
-  const getTransformStyles = (index) => {
-    const r = index - current;
-    const abs = Math.abs(r);
-
-    return {
-      transform: `rotateY(${-10 * r}deg) translateX(${-300 * r}px)`,
-      zIndex: total - abs,
-      filter: abs === 0 ? "none" : "blur(3px)",
-      width: abs === 0 ? "340px" : "270px",
-      height: abs === 0 ? "460px" : "380px",
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 576);
     };
+
+    // Escucha el resize
+    window.addEventListener("resize", handleResize);
+
+    // Llamada inicial por si acaso cambia antes de montar
+    handleResize();
+
+    // Limpieza
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const getTransformStyles = (index) => {
+  const r = index - current;
+  const abs = Math.abs(r);
+
+  const translateX = isSmallScreen ? -240 * r : -280 * r;
+  const width = abs === 0 ? (isSmallScreen ? "260px" : "320px") : (isSmallScreen ? "220px" : "240px");
+  const height = abs === 0 ? (isSmallScreen ? "370px" : "400px") : (isSmallScreen ? "320px" : "360px");
+
+  return {
+    transform: `rotateY(${-10 * r}deg) translateX(${translateX}px)`,
+    zIndex: total - abs,
+    filter: abs === 0 ? "none" : "blur(4px)",
+    width,
+    height,
   };
+};
 
   return (
     <div className="main-section">
-      < Title text="Galeria"/>
+      <Title text="Galeria" />
       <div className="carousel__content">
         <div className="cards__content">
           <main id="carousel">

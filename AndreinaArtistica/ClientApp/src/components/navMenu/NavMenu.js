@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../../assets/img/LogoAndreinartistica.png"
 import "./NavMenu.css";
 
 export const NavMenu = () => {
@@ -71,7 +72,7 @@ export const NavMenu = () => {
           }}
         >
           <img
-            src="https://i.imgur.com/0nCLxdQ.png"
+            src={logo}
             alt="logo"
             className="nav-logo-img"
           />

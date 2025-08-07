@@ -6,6 +6,8 @@ public partial class ArtPiece
 
     public string Title { get; set; } = null!;
 
+    public string ImageUrl { get; set; }
+
     public int Category { get; set; }
 
     public int Material { get; set; }

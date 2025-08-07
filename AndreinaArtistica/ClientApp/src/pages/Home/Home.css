@@ -1,0 +1,163 @@
+﻿/*  Seccion de galeria inicio  */
+
+/* Contenedor principal de la sección */
+.gallery-home {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* Título de la galería */
+.gallery-home h2 {
+  font-size: 80px;
+  text-shadow: 2px 2px 4px #00000083;
+  margin-bottom: 0px !important;
+}
+
+/* Contenedor de las imágenes */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: -15; /* Sin espacio entre imágenes */
+  position: relative;
+  flex-wrap: nowrap; /* Las imágenes no deben saltar de línea */
+  margin: 40px 0px;
+}
+
+/* Estilos de cada imagen */
+.gallery-item {
+  position: relative;
+  width: 180px;
+  height: 270px;
+  overflow: hidden;
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  z-index: 1;
+}
+
+/* Imágenes dentro de los contenedores */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+/* Efecto hover: resaltar imagen seleccionada */
+.gallery-item:hover {
+  z-index: 4;
+  transform: scale(1.15);
+}
+
+/* Oscurecer las imágenes que no están en hover */
+.gallery-container:hover .gallery-item:not(:hover) img {
+  filter: brightness(50%);
+}
+
+/* Reducir el tamaño de las imágenes adyacentes a la izquierda */
+.gallery-item:hover ~ .gallery-item {
+  transition: all 0.5s ease;
+  transform: scale(0.9);
+  z-index: 2;
+}
+
+/* Reducir el tamaño de las imágenes adyacentes a la derecha */
+.gallery-item:has(~ .gallery-item:hover) {
+  transform: scale(0.9);
+  z-index: 2;
+}
+
+/* Reducir aún más las imágenes más alejadas */
+.gallery-item:hover ~ .gallery-item ~ .gallery-item {
+  position: relative;
+  right: 30px;
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+.gallery-item:has(~ .gallery-item ~ .gallery-item:hover) {
+  position: relative;
+  left: 30px;
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+/* Reducir aún más las imágenes más alejadas */
+.gallery-item:hover ~ .gallery-item ~ .gallery-item ~ .gallery-item{
+  position: relative;
+  right: 70px;
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+.gallery-item:has(~ .gallery-item ~ .gallery-item:hover ~ .gallery-item:hover) {
+  position: relative;
+  left: 70px;
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+/*Codigo nuevo por carrousel*/
+.carousel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+  perspective: 1000px; /* Profundidad para el efecto 3D */
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* Mantiene el 3D en los hijos */
+  transition: transform 1s ease; /* Animación de rotación */
+}
+
+.carousel-item {
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Botones de navegación */
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#prevBtn {
+  left: -50px;
+}
+
+#nextBtn {
+  right: -50px;
+}
+
+/* Prueba carousel*/
+
+.carousel-bgd {
+  background-color: black;
+  width: 100%;
+  height: 800px;
+}

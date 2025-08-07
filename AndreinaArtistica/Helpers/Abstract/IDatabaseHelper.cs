@@ -12,4 +12,4 @@ namespace AndreinaArtistica.Helpers.Abstract
 
         public Task<List<Technique>> GetTechniquesFromDB();
     }
-}
+} 

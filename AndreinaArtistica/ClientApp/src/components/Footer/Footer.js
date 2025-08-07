@@ -1,12 +1,22 @@
 import { Container, Row, Col } from "react-bootstrap";
-import navIcon1 from "../../assets/img/nav-icon1.svg";
-import navIcon2 from "../../assets/img/nav-icon2.png";
-import navIcon3 from "../../assets/img/nav-icon3.svg";
 import logo from "../../assets/img/LogoAndreinartistica.png"
-// import Form from "../Form/Form";
+import SocialMedia from "../SocialMedia/SocialMedia";
 import "./Footer.css";
 
 export const Footer = () => {
+  const Icons = [
+    {
+      ImgUrl: "https://imgur.com/Eew4dBb.png",
+      SocialMedia: "facebook",
+      Link: "https://www.facebook.com/andreina.orellana.90"
+    },
+    {
+      ImgUrl: "https://imgur.com/JXEZiLk.png",
+      SocialMedia: "Instagram",
+      Link: "https://www.instagram.com/andreinartistica03/"
+    },
+  ]
+
   return (
     <footer className="footer">
       <Container className="footer-container">
@@ -27,15 +37,7 @@ export const Footer = () => {
               style={{ paddingTop: 20 }}
               className="social-icon d-flex gap-3"
             >
-              <a
-                href="https://www.linkedin.com/in/juan-caceres-orellana/"
-                target="_blank"
-              >
-                <img src={navIcon1} alt="Icon" />
-              </a>
-              <a href="https://www.instagram.com/andreinartistica03/" target="_blank">
-                <img src={navIcon3} alt="Icon" />
-              </a>
+              <SocialMedia icons={Icons}/>
             </div>
           </Col>
         </Row>

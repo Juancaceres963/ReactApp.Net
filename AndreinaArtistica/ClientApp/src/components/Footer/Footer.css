@@ -1,5 +1,8 @@
 .footer {
   background-color: #595959;
+  background-image: url(https://imgur.com/L6vKHeL.png);
+  background-position: center;
+  background-repeat: repeat
 }
 
 .footer-container {
@@ -11,7 +14,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px 0;
-  flex-wrap: wrap; /* Para que sea responsive de forma natural */
+  flex-wrap: wrap; 
 }
 
 .footer-container form {
@@ -54,18 +57,6 @@
   height: 140px;
   object-fit: contain;
   transition: all 0.5s ease ;
-}
-
-.footer-redes {
-  font-size: 20px;
-}
-
-.social-icon {
-  padding-bottom: 10px;
-}
-
-.social-icon a img{
-  height: 40px;
 }
 
 .copy {
